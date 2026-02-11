@@ -64,7 +64,7 @@ export function FloatingHeader() {
 							size="icon"
 							variant="outline"
 							onClick={() => setOpen(!open)}
-							className="lg:hidden"
+							className="lg:hidden text-white border-white/30 hover:bg-white/10 hover:text-white"
 						>
 							<MenuIcon className="size-4" />
 						</Button>
@@ -90,10 +90,10 @@ export function FloatingHeader() {
 							</div>
 							<SheetFooter>
 								<Button variant="outline" className="text-white border-white/30 hover:bg-[#673de6]/20 hover:text-white" asChild>
-									<a href="#confianca">Quem Somos</a>
+									<a href="#confianca" onClick={() => setOpen(false)}>Quem Somos</a>
 								</Button>
 								<Button className="text-white" asChild>
-									<a href="#contato">Fale Conosco</a>
+									<a href="#contato" onClick={() => setOpen(false)}>Fale Conosco</a>
 								</Button>
 							</SheetFooter>
 						</SheetContent>
