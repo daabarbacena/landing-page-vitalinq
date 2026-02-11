@@ -1,0 +1,136 @@
+---
+interface Benefit {
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const benefits: Benefit[] = [
+  {
+    icon: "🔒",
+    title: "Seguro",
+    description: "Total conformidade regulatória e transparência",
+    features: [
+      "Parcerias com fabricantes certificados internacionalmente",
+      "Rastreabilidade completa de cada etapa do processo",
+      "Documentação oficial ANVISA e auditável",
+      "Garantia de autenticidade e procedência"
+    ]
+  },
+  {
+    icon: "⚡",
+    title: "Simples",
+    description: "Processo descomplicado do início ao fim",
+    features: [
+      "Assessoria farmacêutica especializada 24/7",
+      "Gestão 100% online da documentação",
+      "Comunicação clara e objetiva a cada etapa",
+      "Suporte humanizado em português"
+    ]
+  },
+  {
+    icon: "🚀",
+    title: "Rápido",
+    description: "Agilidade sem comprometer qualidade ou segurança",
+    features: [
+      "Triagem farmacêutica em até 24 horas",
+      "Processos de importação otimizados",
+      "Relação direta com fabricantes globais",
+      "Acompanhamento logístico em tempo real"
+    ]
+  }
+];
+---
+
+<section
+  id="beneficios"
+  aria-labelledby="benefits-heading"
+  class="relative bg-white py-20 sm:py-28 lg:py-32 overflow-hidden"
+>
+  <!-- Decoração de fundo -->
+  <div
+    class="pointer-events-none absolute -right-48 top-0 h-96 w-96 rounded-full bg-[#673de6]/5 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-3xl text-center mb-16">
+      <h2
+        id="benefits-heading"
+        class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"
+      >
+        Por que escolher a <span class="text-[#673de6]">VitalinQ</span>?
+      </h2>
+      <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+        Assessoria completa na importação de medicamentos para Médicos, Pacientes,
+        Clínicas, Farmácias e Hospitais. Transformamos complexidade em simplicidade.
+      </p>
+    </div>
+
+    <!-- Grid de benefícios -->
+    <div class="grid gap-8 md:grid-cols-3">
+      {benefits.map((benefit) => (
+        <div class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl hover:border-[#673de6]/50 hover:-translate-y-1">
+          <!-- Ícone -->
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg shadow-[#673de6]/20">
+            {benefit.icon}
+          </div>
+
+          <!-- Conteúdo -->
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            {benefit.title}
+          </h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            {benefit.description}
+          </p>
+
+          <!-- Features -->
+          <ul class="space-y-3">
+            {benefit.features.map((feature) => (
+              <li class="flex items-start gap-3 text-sm text-gray-700">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#673de6]/10 text-[#673de6] flex-shrink-0 mt-0.5">
+                  ✓
+                </span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Hover effect -->
+          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#673de6]/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA de conversão -->
+    <div class="mt-16 bg-gradient-to-r from-[#673de6] to-[#5025d1] rounded-2xl p-8 md:p-12 text-center shadow-2xl shadow-[#673de6]/30">
+      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Pronto para importar seu medicamento?
+      </h3>
+      <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+        Não perca mais tempo. Nossa equipe especializada está pronta para guiá-lo em cada etapa do processo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/#contato"
+          class="rounded-lg bg-white px-8 py-4 text-lg font-semibold text-[#673de6] shadow-lg transition-all hover:shadow-xl hover:scale-105 active:scale-95"
+        >
+          Iniciar importação agora
+        </a>
+        <a
+          href="/#passos"
+          class="rounded-lg border-2 border-white px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-white/10"
+        >
+          Ver como funciona
+        </a>
+      </div>
+
+      <!-- Elemento de urgência -->
+      <p class="mt-6 text-sm text-white/70">
+        ⏱️ Resposta em até 24 horas • 🔒 Processo 100% seguro e certificado
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,123 @@
+---
+import logoVitalinQ from "../assets/images/logos/logo-vitalinq.svg";
+
+const currentYear = new Date().getFullYear();
+
+const navSections = [
+  { label: "Como funciona", href: "/#passos" },
+  { label: "Confiança", href: "/#confianca" },
+  { label: "Áreas terapêuticas", href: "/#areas-terapeuticas" },
+  { label: "Segurança", href: "/#seguranca" },
+  { label: "Contato", href: "/#contato" },
+];
+
+const legalLinks = [
+  { label: "Termos de uso", href: "/termos-de-uso" },
+  { label: "Política de privacidade", href: "/politica-de-privacidade" },
+  { label: "Política de cookies", href: "/politica-de-cookies" },
+];
+---
+
+<footer
+  class="relative bg-[#191919] py-16 sm:py-20 lg:py-24 text-white overflow-hidden"
+  role="contentinfo"
+>
+  <!-- Glow decorativo sutil -->
+  <div
+    class="pointer-events-none absolute -left-96 bottom-1/3 h-96 w-96 rounded-full bg-[#673de6]/5 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Grid principal: 3 colunas (desktop) -->
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Coluna 1: Branding -->
+      <div>
+        <a href="/" class="inline-block transition-opacity hover:opacity-80" aria-label="VitalinQ — Página inicial">
+          <img src={logoVitalinQ.src} alt="VitalinQ" class="h-24 w-auto" />
+        </a>
+        <p class="mt-4 text-sm text-[#fff9] leading-relaxed max-w-sm">
+          Assessoria em importação de medicamentos com orientação clara e acompanhamento.
+        </p>
+      </div>
+
+      <!-- Coluna 2: Navegação -->
+      <nav aria-label="Navegação do rodapé — seções">
+        <p class="text-sm font-semibold text-white mb-4">Seções</p>
+        <ul class="space-y-3">
+          {
+            navSections.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-sm text-[#fff9] transition-colors hover:text-[#673de6] focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2 focus:ring-offset-[#191919] rounded px-2 py-1"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <!-- Coluna 3: Legal + Contato -->
+      <div class="space-y-8">
+        <!-- Links legais -->
+        <nav aria-label="Navegação do rodapé — legal">
+          <p class="text-sm font-semibold text-white mb-4">Legal</p>
+          <ul class="space-y-3">
+            {
+              legalLinks.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="text-sm text-[#fff9] transition-colors hover:text-[#673de6] focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2 focus:ring-offset-[#191919] rounded px-2 py-1"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+
+        <!-- Contato resumido -->
+        <div>
+          <p class="text-sm font-semibold text-white mb-4">Contato</p>
+          <div class="space-y-2 text-sm text-[#fff9]">
+            <p>
+              <span class="font-medium">WhatsApp:</span>{" "}
+              <a
+                href="https://wa.me/13024657818"
+                class="text-[#673de6] hover:underline focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2 focus:ring-offset-[#191919] rounded px-1"
+                aria-label="Enviar mensagem no WhatsApp"
+              >
+                +1 (302) 465-7818
+              </a>
+            </p>
+            <p>
+              <span class="font-medium">E-mail:</span>{" "}
+              <a
+                href="mailto:contact@thevitalinq.com"
+                class="text-[#673de6] hover:underline focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2 focus:ring-offset-[#191919] rounded px-1"
+                aria-label="Enviar e-mail"
+              >
+                contact@thevitalinq.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divisor sutil -->
+    <div class="mt-12 border-t border-[#673de6]/10"></div>
+
+    <!-- Linha final: Copyright -->
+    <div class="mt-8 text-center">
+      <p class="text-xs text-neutral-400">
+        &copy; {currentYear} VitalinQ. Todos os direitos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

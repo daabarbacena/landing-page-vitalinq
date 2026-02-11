@@ -1,0 +1,115 @@
+---
+import oncologiaImg from "../../assets/images/oncologia.avif";
+import escleroseImg from "../../assets/images/esclerose.avif";
+import doencasRarasImg from "../../assets/images/doencas-raras.avif";
+import imunobiologicosImg from "../../assets/images/imunobiologicos.avif";
+import endocrinologiaImg from "../../assets/images/endocrinologia.avif";
+import medicoReceitandoImg from "../../assets/images/medico-receitando.avif";
+
+const areas = [
+  {
+    title: "Oncologia",
+    description: "Terapias oncológicas e medicamentos de alto custo.",
+    image: oncologiaImg,
+  },
+  {
+    title: "Esclerose múltipla",
+    description: "Tratamentos imunomoduladores e acompanhamento orientado.",
+    image: escleroseImg,
+  },
+  {
+    title: "Doenças raras",
+    description: "Medicamentos órfãos e de difícil acesso.",
+    image: doencasRarasImg,
+  },
+  {
+    title: "Imunobiológicos",
+    description: "Terapias biológicas e imunossupressoras.",
+    image: imunobiologicosImg,
+  },
+  {
+    title: "Endocrinologia",
+    description: "Medicamentos especializados conforme prescrição.",
+    image: endocrinologiaImg,
+  },
+  {
+    title: "Sob demanda",
+    description: "Outras especialidades: avaliamos a prescrição e orientamos o melhor caminho.",
+    image: medicoReceitandoImg,
+  },
+];
+---
+
+<section
+  id="areas-terapeuticas"
+  aria-labelledby="areas-heading"
+  class="bg-white py-16 sm:py-20 lg:py-28"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Cabeçalho -->
+    <div class="text-center mb-12 lg:mb-16">
+      <h2
+        id="areas-heading"
+        class="text-3xl font-bold leading-tight tracking-tight text-[#191919] sm:text-4xl lg:text-5xl"
+      >
+        Áreas terapêuticas
+      </h2>
+      <p class="mt-6 text-lg text-neutral-600 max-w-3xl mx-auto">
+        Atendemos medicamentos de alta complexidade e uso especializado. Se você não encontrar sua categoria aqui, avaliamos seu caso da mesma forma.
+      </p>
+    </div>
+
+    <!-- Grid de Cards -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+      {
+        areas.map((area, idx) => (
+          <div class="group relative overflow-hidden rounded-2xl border border-[#191919]/10 bg-white shadow-sm hover:shadow-md hover:border-[#673de6]/30 transition-all duration-200">
+            {/* Imagem de fundo com overlay */}
+            {area.image && (
+              <div class="relative h-40 overflow-hidden">
+                <img
+                  src={area.image.src}
+                  alt={area.title}
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              </div>
+            )}
+            
+            {/* Conteúdo do card */}
+            <div class={area.image ? "p-6" : "p-6 sm:p-8"}>
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                  <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#673de6]/15 group-hover:bg-[#673de6]/25 transition-colors">
+                    <div class="h-2 w-2 rounded-full bg-[#673de6]"></div>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-lg font-semibold text-[#191919] group-hover:text-[#673de6] transition-colors">
+                    {area.title}
+                  </h3>
+                  <p class="mt-2 text-sm text-neutral-600 leading-relaxed">
+                    {area.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- CTA + Microcopy -->
+    <div class="mt-12 flex flex-col items-center gap-6 lg:mt-16">
+      <a
+        href="/#contato"
+        class="rounded-lg bg-[#673de6] px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-[0_0_32px_rgba(112,71,235,0.4)] focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2"
+      >
+        Falar com um especialista
+      </a>
+      <p class="text-xs sm:text-sm text-neutral-500 text-center max-w-2xl italic">
+        Se preferir, você pode iniciar pela triagem no início da página e depois detalhamos com você.
+      </p>
+    </div>
+  </div>
+</section>

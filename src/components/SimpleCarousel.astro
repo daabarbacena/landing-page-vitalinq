@@ -1,0 +1,148 @@
+---
+interface Logo {
+  name: string;
+  svg: string;
+}
+
+interface Props {
+  logos: Logo[];
+}
+
+const { logos } = Astro.props;
+---
+
+<div class="carousel-root" style="position:relative;width:100%;padding:2rem 0;">
+  <!-- Left arrow -->
+  <button
+    class="carousel-arrow carousel-arrow-left"
+    aria-label="Anterior"
+    data-dir="left"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+
+  <!-- Track -->
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+      {logos.map((logo) => (
+        <div class="carousel-slide">
+          <img src={logo.svg} alt={logo.name} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Right arrow -->
+  <button
+    class="carousel-arrow carousel-arrow-right"
+    aria-label="Próximo"
+    data-dir="right"
+  >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+
+<style is:inline>
+  .carousel-root {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .carousel-viewport {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .carousel-slide {
+    flex-shrink: 0;
+    width: 150px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+  .carousel-slide:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(103,61,230,0.4);
+    transform: translateY(-4px);
+  }
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.7);
+    transition: filter 0.3s ease;
+  }
+  .carousel-slide:hover img {
+    filter: grayscale(0%) brightness(1);
+  }
+  .carousel-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(103,61,230,0.4);
+    background: rgba(103,61,230,0.15);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .carousel-arrow:hover {
+    background: rgba(103,61,230,0.35);
+    border-color: rgba(103,61,230,0.7);
+  }
+  .carousel-arrow:active {
+    transform: scale(0.92);
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    var roots = document.querySelectorAll('.carousel-root');
+    roots.forEach(function(root) {
+      var track = root.querySelector('.carousel-track');
+      var slides = track.querySelectorAll('.carousel-slide');
+      if (!track || slides.length === 0) return;
+
+      var pos = 0;
+      var slideW = 150 + 20; // width + gap
+      var visible = Math.floor(root.querySelector('.carousel-viewport').offsetWidth / slideW);
+      var maxPos = Math.max(0, slides.length - visible);
+
+      window.addEventListener('resize', function() {
+        visible = Math.floor(root.querySelector('.carousel-viewport').offsetWidth / slideW);
+        maxPos = Math.max(0, slides.length - visible);
+        if (pos > maxPos) { pos = maxPos; update(); }
+      });
+
+      function update() {
+        track.style.transform = 'translateX(-' + (pos * slideW) + 'px)';
+      }
+
+      root.querySelectorAll('.carousel-arrow').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var dir = btn.getAttribute('data-dir');
+          if (dir === 'left') {
+            pos = Math.max(0, pos - 1);
+          } else {
+            pos = Math.min(maxPos, pos + 1);
+          }
+          update();
+        });
+      });
+    });
+  })();
+</script>

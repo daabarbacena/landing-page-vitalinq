@@ -1,0 +1,26 @@
+<section id="seguranca" aria-labelledby="seguranca-heading" class="bg-neutral-50 py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <h2 id="seguranca-heading" class="text-center text-2xl font-bold text-neutral-900 sm:text-3xl">
+      [Placeholder — Segurança e Compliance]
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-neutral-500">
+      [Placeholder — Seus dados são tratados com o mais alto nível de segurança, em conformidade com a LGPD e as normas regulatórias do setor de saúde.]
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        { title: "LGPD", desc: "[Conformidade total com a Lei Geral de Proteção de Dados.]" },
+        { title: "Criptografia", desc: "[Dados protegidos com criptografia de ponta a ponta.]" },
+        { title: "Regulamentação", desc: "[Atuamos em conformidade com órgãos reguladores de saúde.]" },
+      ].map((item) => (
+        <div class="rounded-xl border border-neutral-200 bg-white p-6 text-center">
+          <div class="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent/10">
+            <span class="text-lg text-accent" aria-hidden="true">&#10003;</span>
+          </div>
+          <h3 class="text-sm font-semibold text-neutral-800">{item.title}</h3>
+          <p class="mt-2 text-xs text-neutral-500">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

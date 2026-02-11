@@ -1,0 +1,42 @@
+---
+import logoVitalinQ from "../assets/images/logos/logo-vitalinq.svg";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-neutral-200 bg-neutral-50" role="contentinfo">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <a href="/" class="inline-block hover:opacity-80 transition-opacity" aria-label="VitalinQ — Página inicial">
+      <img src={logoVitalinQ.src} alt="VitalinQ" class="h-24 w-auto" />
+    </a>
+
+    <nav aria-label="Navegação legal" class="mt-6">
+      <ul class="space-y-2 text-sm text-neutral-600">
+        <li>
+          <a href="/" class="hover:text-primary transition-colors">
+            Voltar à Página Inicial
+          </a>
+        </li>
+        <li>
+          <a href="/termos-de-uso" class="hover:text-primary transition-colors">
+            Termos de Uso
+          </a>
+        </li>
+        <li>
+          <a href="/politica-de-privacidade" class="hover:text-primary transition-colors">
+            Política de Privacidade
+          </a>
+        </li>
+        <li>
+          <a href="/politica-de-cookies" class="hover:text-primary transition-colors">
+            Política de Cookies
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mt-10 border-t border-neutral-200 pt-6 text-center text-xs text-neutral-400">
+      <p>&copy; {currentYear} VitalinQ. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>

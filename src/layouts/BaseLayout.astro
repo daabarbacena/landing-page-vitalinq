@@ -1,0 +1,82 @@
+---
+import "../styles/global.css";
+import FloatingHeaderWrapper from "../components/FloatingHeaderWrapper.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "VitalinQ — Cuidado inteligente com a confiança que você merece. Triagem e orientação em saúde com segurança e profissionalismo.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Inter (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+
+  <body class="min-h-screen bg-white text-neutral-800 antialiased">
+    <!-- Skip to content -->
+    <a
+      href="#main-content"
+      class="fixed left-2 top-2 z-50 -translate-y-16 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+    >
+      Pular para o conteúdo
+    </a>
+
+    <!-- Global Fixed Header (outside main to avoid stacking context issues) -->
+    <FloatingHeaderWrapper />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- Lenis Smooth Scroll -->
+    <script is:inline src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script is:inline>
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+        touchMultiplier: 2,
+        smoothWheel: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Make anchor links work with Lenis
+      document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var href = this.getAttribute('href');
+          var hash = href.startsWith('/#') ? href.substring(1) : href;
+          var target = document.querySelector(hash);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -80 });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

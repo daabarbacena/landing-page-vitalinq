@@ -1,0 +1,76 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import logoVitalinQ from "../assets/images/logos/logo-vitalinq.svg";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "VitalinQ — Cuidado inteligente com a confiança que você merece. Triagem e orientação em saúde com segurança e profissionalismo.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Inter (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+
+  <body class="min-h-screen bg-[#191919] text-white antialiased">
+    <!-- Skip to content -->
+    <a
+      href="#main-content"
+      class="fixed left-2 top-2 z-50 -translate-y-16 rounded-lg bg-[#673de6] px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+    >
+      Pular para o conteúdo
+    </a>
+
+    <!-- Header com navegação -->
+    <header class="relative z-20 border-b border-[#673de6]/20 bg-[#191919]">
+      <nav
+        aria-label="Navegação principal"
+        class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+      >
+        <a
+          href="/"
+          class="transition-opacity hover:opacity-80"
+          aria-label="VitalinQ — Página inicial"
+        >
+          <img src={logoVitalinQ.src} alt="VitalinQ" class="h-8 w-auto" />
+        </a>
+
+        <a
+          href="/"
+          class="rounded-lg bg-[#673de6] px-6 py-2 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-[0_0_20px_rgba(103,61,230,0.4)] active:scale-95"
+        >
+          Voltar ao início
+        </a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>

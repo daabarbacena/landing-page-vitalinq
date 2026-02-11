@@ -1,0 +1,41 @@
+---
+import type { TriagemOption } from "../types/triagem";
+import { DEFAULT_TRIAGEM_OPTIONS } from "../types/triagem";
+
+/**
+ * TODO: Substituir `options` por dados obtidos via fetch/API em tempo real.
+ * Quando a integração estiver pronta:
+ * 1. Criar um endpoint (ex: /api/triagem-options) ou consumir API externa.
+ * 2. Trocar o array estático abaixo por uma chamada fetch().
+ * 3. Considerar usar um island (client:load) se precisar de atualização
+ *    dinâmica sem reload — por enquanto mantemos zero JS no client.
+ */
+const options: TriagemOption[] = DEFAULT_TRIAGEM_OPTIONS
+  .filter((opt) => opt.active !== false)
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+
+const selectId = "triagem-select";
+const descriptionId = "triagem-description";
+---
+
+<div class="w-full max-w-md">
+  <label for={selectId} class="block text-sm font-semibold text-neutral-700">
+    Qual área de cuidado você procura?
+  </label>
+
+  <select
+    id={selectId}
+    name="triagem"
+    aria-describedby={descriptionId}
+    class="mt-2 block w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-800 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/30"
+  >
+    <option value="" disabled selected>Selecione uma opção</option>
+    {options.map((opt) => (
+      <option value={opt.value}>{opt.label}</option>
+    ))}
+  </select>
+
+  <p id={descriptionId} class="mt-2 text-xs text-neutral-400">
+    As opções disponíveis são atualizadas pela equipe em tempo real, conforme disponibilidade e regulamentação vigente.
+  </p>
+</div>

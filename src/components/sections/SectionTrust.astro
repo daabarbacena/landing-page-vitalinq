@@ -1,0 +1,116 @@
+---
+import SimpleCarousel from "../SimpleCarousel.astro";
+import WaveBackgroundWrapper from "../WaveBackgroundWrapper.astro";
+import { PHARMACEUTICAL_BRANDS } from "../../types/pharmaceutical-brands";
+
+const kpis = [
+  { value: "+5 anos", label: "Atuação internacional", description: "Experiência consolidada no mercado." },
+  { value: "+2.000", label: "Produtos enviados ao Brasil", description: "Entregas realizadas com sucesso." },
+  { value: "7 dias", label: "Atendimento (8h às 22h)", description: "Suporte contínuo e acessível." },
+  { value: "100%", label: "Taxa de Sucesso", description: "Garantia total nos processos." },
+  { value: "2000+", label: "Produtos Entregues", description: "Medicamentos importados com sucesso." },
+  { value: "30+", label: "Países Atendidos", description: "Medicamentos adquiridos globalmente." },
+];
+
+const paragraphs = [
+  "Desde 2019, a VitalinQ conecta o Brasil a fabricantes globais de medicamentos, viabilizando acesso a tratamentos de alta complexidade com segurança, agilidade e conformidade regulatória.",
+  "Com sede nos Estados Unidos e entrepostos estratégicos, atendemos pacientes, médicos, farmácias, hospitais e instituições, com foco em rastreabilidade, qualidade e previsibilidade.",
+];
+
+// Transform PHARMACEUTICAL_BRANDS for SimpleCarousel
+const logos = PHARMACEUTICAL_BRANDS.map(brand => ({
+  name: brand.name,
+  svg: brand.svg
+}));
+---
+
+<section
+  id="confianca"
+  aria-labelledby="trust-heading"
+  class="relative bg-[#191919] py-16 sm:py-20 lg:py-28 text-white overflow-hidden"
+>
+  <!-- Wave Background with High Blur -->
+  <WaveBackgroundWrapper />
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-3xl mb-12 lg:mb-0">
+      <h2
+        id="trust-heading"
+        class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl"
+      >
+        Confiança em cada etapa
+      </h2>
+      <p class="mt-6 text-lg text-[#fff9] leading-relaxed">
+        Importação de medicamentos exige cuidado, documentação correta e acompanhamento claro. Nosso papel é orientar e estruturar o processo com segurança e transparência.
+      </p>
+    </div>
+
+    <!-- Grid: Quem Somos + KPIs -->
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-start mt-12">
+      <!-- Coluna esquerda: Quem somos -->
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-semibold text-white">Quem somos</h3>
+          <p class="mt-3 text-base text-[#fff9] leading-relaxed">
+            {paragraphs[0]}
+          </p>
+        </div>
+        <p class="text-base text-[#fff9] leading-relaxed">
+          {paragraphs[1]}
+        </p>
+      </div>
+
+      <!-- Coluna direita: KPIs Grid 3x2 -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+        {
+          kpis.map((kpi) => (
+            <div class="rounded-xl border border-[#673de6]/30 bg-[#673de6]/10 p-6 backdrop-blur-sm hover:border-[#673de6]/60 hover:bg-[#673de6]/20 transition-all">
+              <p class="text-2xl sm:text-3xl font-bold text-[#673de6]">
+                {kpi.value}
+              </p>
+              <p class="mt-2 text-xs sm:text-sm font-semibold text-white">
+                {kpi.label}
+              </p>
+              <p class="mt-1 text-xs text-[#fff9]">
+                {kpi.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Divisor sutil -->
+    <div class="mt-16 border-t border-[#673de6]/15"></div>
+
+    <!-- Bloco de Marcas -->
+    <div class="mt-16">
+      <h3 class="text-lg font-semibold text-white">Referências globais</h3>
+      <p class="mt-3 text-sm text-[#fff9] max-w-3xl leading-relaxed">
+        Operamos importações provenientes de fabricantes e distribuidores internacionais reconhecidos. As marcas abaixo são apenas referências de mercado e não indicam parceria, afiliação ou representação.
+      </p>
+
+      <!-- Carousel de marcas farmacêuticas -->
+      <div class="mt-8">
+        <SimpleCarousel logos={logos} />
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="mt-16 flex flex-col gap-3 sm:flex-row sm:gap-4 lg:mt-20">
+      <a
+        href="/#contato"
+        class="rounded-lg bg-[#673de6] px-6 py-3 text-center font-semibold text-white shadow-lg transition-all hover:shadow-[0_0_32px_rgba(112,71,235,0.4)] focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2 focus:ring-offset-[#191919]"
+      >
+        Falar com um especialista
+      </a>
+      <a
+        href="/#contato"
+        class="rounded-lg border-2 border-[#673de6] px-6 py-3 text-center font-semibold text-[#673de6] transition-colors hover:bg-[#673de6]/10 focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2 focus:ring-offset-[#191919]"
+      >
+        Entender meu caso
+      </a>
+    </div>
+  </div>
+</section>

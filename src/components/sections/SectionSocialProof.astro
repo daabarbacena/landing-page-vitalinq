@@ -1,0 +1,129 @@
+---
+interface Testimonial {
+  quote: string;
+  author: string;
+  role: string;
+  location: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    quote: "A VitalinQ tornou possível o acesso a um medicamento essencial para o tratamento do meu paciente. O processo foi rápido, transparente e totalmente seguro.",
+    author: "Dr. Ricardo Mendes",
+    role: "Oncologista",
+    location: "São Paulo, SP"
+  },
+  {
+    quote: "Precisava importar um medicamento urgente e a equipe da VitalinQ foi extremamente eficiente. Recebi todas as orientações necessárias e o acompanhamento foi impecável.",
+    author: "Ana Paula Costa",
+    role: "Paciente",
+    location: "Rio de Janeiro, RJ"
+  },
+  {
+    quote: "Como farmacêutica hospitalar, a VitalinQ se tornou nossa parceira de confiança. A conformidade regulatória e a agilidade no processo são incomparáveis.",
+    author: "Dra. Juliana Santos",
+    role: "Farmacêutica Hospitalar",
+    location: "Belo Horizonte, MG"
+  }
+];
+
+const stats: Stat[] = [
+  { value: "500+", label: "Importações realizadas" },
+  { value: "98%", label: "Taxa de aprovação" },
+  { value: "24h", label: "Tempo médio de resposta" },
+  { value: "15+", label: "Anos de experiência" }
+];
+---
+
+<section
+  id="depoimentos"
+  aria-labelledby="testimonials-heading"
+  class="relative bg-gradient-to-br from-[#673de6] to-[#5025d1] py-20 sm:py-28 lg:py-32 overflow-hidden text-white"
+>
+  <!-- Padrão decorativo -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-4 mb-20">
+      {stats.map((stat) => (
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-bold mb-2 text-white">
+            {stat.value}
+          </div>
+          <div class="text-sm text-white/80">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Cabeçalho -->
+    <div class="text-center mb-16">
+      <h2
+        id="testimonials-heading"
+        class="text-3xl font-bold sm:text-4xl lg:text-5xl"
+      >
+        Confiança de quem já importou
+      </h2>
+      <p class="mt-4 text-lg text-white/90 max-w-3xl mx-auto">
+        Veja o que nossos clientes dizem sobre a experiência de importar medicamentos com a VitalinQ
+      </p>
+    </div>
+
+    <!-- Grid de depoimentos -->
+    <div class="grid gap-8 md:grid-cols-3">
+      {testimonials.map((testimonial) => (
+        <div class="relative rounded-2xl bg-white/10 backdrop-blur-sm p-8 border border-white/20 hover:bg-white/15 transition-all">
+          <!-- Aspas decorativas -->
+          <div class="text-6xl text-white/30 leading-none mb-4">"</div>
+
+          <!-- Quote -->
+          <p class="text-white/95 leading-relaxed mb-6 italic">
+            {testimonial.quote}
+          </p>
+
+          <!-- Author -->
+          <div class="border-t border-white/20 pt-4">
+            <div class="font-semibold text-white">
+              {testimonial.author}
+            </div>
+            <div class="text-sm text-white/70">
+              {testimonial.role}
+            </div>
+            <div class="text-xs text-white/50 mt-1">
+              📍 {testimonial.location}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Trust badges -->
+    <div class="mt-16 flex flex-wrap justify-center gap-8 items-center">
+      <div class="flex items-center gap-2 text-white/80">
+        <span class="text-2xl">🔒</span>
+        <span class="text-sm">Certificado ANVISA</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/80">
+        <span class="text-2xl">✅</span>
+        <span class="text-sm">ISO 9001</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/80">
+        <span class="text-2xl">🏆</span>
+        <span class="text-sm">Selo de Qualidade</span>
+      </div>
+      <div class="flex items-center gap-2 text-white/80">
+        <span class="text-2xl">🌟</span>
+        <span class="text-sm">5 estrelas Google</span>
+      </div>
+    </div>
+  </div>
+</section>

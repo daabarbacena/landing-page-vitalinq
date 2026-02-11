@@ -1,0 +1,155 @@
+---
+interface Props {
+  className?: string;
+  color?: string;
+}
+
+const { className = "", color = "#673de6" } = Astro.props;
+---
+
+<div class={`dna-background ${className}`}>
+  <svg class="dna-helix" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice">
+    <!-- Primeira hélice (esquerda) -->
+    <path
+      class="helix-strand helix-left"
+      d="M 100 0 Q 50 100, 100 200 Q 150 300, 100 400 Q 50 500, 100 600 Q 150 700, 100 800"
+      fill="none"
+      stroke={color}
+      stroke-width="3"
+      opacity="0.6"
+    />
+
+    <!-- Segunda hélice (direita) -->
+    <path
+      class="helix-strand helix-right"
+      d="M 300 0 Q 350 100, 300 200 Q 250 300, 300 400 Q 350 500, 300 600 Q 250 700, 300 800"
+      fill="none"
+      stroke={color}
+      stroke-width="3"
+      opacity="0.6"
+    />
+
+    <!-- Conexões (rungs) entre as hélices -->
+    {Array.from({ length: 40 }).map((_, i) => {
+      const y = i * 20;
+      const phase = (i * 18) % 360;
+      const leftX = 100 + 50 * Math.sin((phase * Math.PI) / 180);
+      const rightX = 300 - 50 * Math.sin((phase * Math.PI) / 180);
+
+      return (
+        <line
+          class="helix-rung"
+          x1={leftX}
+          y1={y}
+          x2={rightX}
+          y2={y}
+          stroke={color}
+          stroke-width="2"
+          opacity="0.3"
+          style={`animation-delay: ${i * 0.05}s;`}
+        />
+      );
+    })}
+
+    <!-- Partículas de fundo -->
+    {Array.from({ length: 20 }).map((_, i) => (
+      <circle
+        class="dna-particle"
+        cx={Math.random() * 400}
+        cy={Math.random() * 800}
+        r={Math.random() * 3 + 1}
+        fill={color}
+        opacity="0.2"
+        style={`animation-delay: ${Math.random() * 5}s; animation-duration: ${Math.random() * 10 + 10}s;`}
+      />
+    ))}
+  </svg>
+</div>
+
+<style>
+  .dna-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .dna-helix {
+    width: 100%;
+    height: 100%;
+    filter: blur(2px);
+    opacity: 0.4;
+  }
+
+  /* Animação das hélices */
+  .helix-strand {
+    animation: rotate-helix 20s linear infinite;
+    transform-origin: center;
+  }
+
+  .helix-left {
+    animation-delay: 0s;
+  }
+
+  .helix-right {
+    animation-delay: -10s;
+  }
+
+  /* Animação das conexões */
+  .helix-rung {
+    animation: pulse-rung 4s ease-in-out infinite;
+  }
+
+  /* Animação das partículas */
+  .dna-particle {
+    animation: float-particle 15s ease-in-out infinite;
+  }
+
+  @keyframes rotate-helix {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+    }
+  }
+
+  @keyframes pulse-rung {
+    0%, 100% {
+      opacity: 0.2;
+      stroke-width: 1.5;
+    }
+    50% {
+      opacity: 0.4;
+      stroke-width: 2.5;
+    }
+  }
+
+  @keyframes float-particle {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.1;
+    }
+    50% {
+      transform: translateY(-50px) translateX(20px);
+      opacity: 0.3;
+    }
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .dna-helix {
+      filter: blur(3px);
+      opacity: 0.3;
+    }
+  }
+
+  /* Preferência de movimento reduzido */
+  @media (prefers-reduced-motion: reduce) {
+    .helix-strand,
+    .helix-rung,
+    .dna-particle {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,175 @@
+---
+import logoVitalinQ from "../assets/images/logos/logo-vitalinq.svg";
+
+const navSections = [
+  { label: "Início", href: "/#inicio" },
+  { label: "Como Funciona", href: "/#passos" },
+  { label: "Quem Somos", href: "/#confianca" },
+  { label: "Áreas", href: "/#areas-terapeuticas" },
+  { label: "Segurança", href: "/#seguranca" },
+];
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 z-[9999] w-full border-b border-neutral-200/50 bg-white/95 backdrop-blur-md transition-all duration-300"
+>
+  <div
+    id="header-container"
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 transition-all duration-300 sm:px-6 lg:px-8"
+  >
+    <a
+      href="/"
+      class="flex items-center gap-2 transition-transform hover:opacity-90"
+      aria-label="VitalinQ — Página inicial"
+    >
+      <img
+        id="header-logo"
+        src={logoVitalinQ.src}
+        alt="VitalinQ"
+        class="h-14 w-auto transition-all duration-300"
+      />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav aria-label="Navegação principal" class="hidden md:block">
+      <ul class="flex items-center gap-8 text-sm font-medium text-neutral-600">
+        {
+          navSections.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="relative transition-colors hover:text-primary after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="group flex h-10 w-10 items-center justify-center rounded-lg p-2 text-neutral-600 hover:bg-neutral-100 md:hidden focus:outline-none focus:ring-2 focus:ring-primary"
+      aria-label="Abrir menu de navegação"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <!-- Hamburger Icon -->
+      <svg
+        id="hamburger-icon"
+        class="h-6 w-6 transition-all duration-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- Close Icon -->
+      <svg
+        id="close-icon"
+        class="absolute h-6 w-6 opacity-0 transition-all duration-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-x-0 top-[85px] z-[9998] max-h-0 overflow-hidden bg-white/98 backdrop-blur-xl transition-all duration-300 ease-in-out md:hidden"
+  >
+    <nav class="flex flex-col border-t border-neutral-200/50">
+      {
+        navSections.map((item) => (
+          <a
+            href={item.href}
+            class="mobile-link border-b border-neutral-100 px-6 py-4 text-base font-medium text-neutral-700 hover:bg-neutral-50 hover:text-primary transition-colors"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("main-header") as HTMLElement;
+  const container = document.getElementById("header-container") as HTMLElement;
+  const logo = document.getElementById("header-logo") as HTMLElement;
+  const mobileBtn = document.getElementById("mobile-menu-btn") as HTMLButtonElement;
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+  const hamburgerIcon = document.getElementById("hamburger-icon") as unknown as SVGElement;
+  const closeIcon = document.getElementById("close-icon") as unknown as SVGElement;
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+
+  let isScrolled = false;
+  let isMenuOpen = false;
+
+  function updateHeader() {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 20 && !isScrolled) {
+      isScrolled = true;
+      header?.classList.add("shadow-md");
+      container?.classList.replace("py-5", "py-2");
+      logo?.classList.replace("h-14", "h-10");
+      if (mobileMenu && !isMenuOpen) mobileMenu.style.top = "65px";
+    } else if (scrollY <= 20 && isScrolled) {
+      isScrolled = false;
+      header?.classList.remove("shadow-md");
+      container?.classList.replace("py-2", "py-5");
+      logo?.classList.replace("h-10", "h-14");
+      if (mobileMenu && !isMenuOpen) mobileMenu.style.top = "85px";
+    }
+  }
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    mobileBtn?.setAttribute("aria-expanded", String(isMenuOpen));
+    
+    if (isMenuOpen) {
+      mobileMenu.style.maxHeight = "calc(100vh - 85px)";
+      hamburgerIcon.style.opacity = "0";
+      hamburgerIcon.style.transform = "rotate(180deg)";
+      closeIcon.style.opacity = "1";
+      closeIcon.style.transform = "rotate(0deg)";
+      document.body.style.overflow = "hidden";
+    } else {
+      mobileMenu.style.maxHeight = "0";
+      hamburgerIcon.style.opacity = "1";
+      hamburgerIcon.style.transform = "rotate(0deg)";
+      closeIcon.style.opacity = "0";
+      closeIcon.style.transform = "rotate(-180deg)";
+      document.body.style.overflow = "";
+    }
+  }
+
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
+  mobileBtn?.addEventListener("click", toggleMenu);
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (isMenuOpen) toggleMenu();
+    });
+  });
+</script>

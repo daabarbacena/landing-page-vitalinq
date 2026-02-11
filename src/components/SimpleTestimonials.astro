@@ -1,0 +1,85 @@
+---
+// Simple testimonials component - images will be uploaded later
+const testimonials = [
+  {
+    id: 1,
+    name: "Dr. Ricardo Mendes",
+    role: "Médico Oncologista",
+    company: "Hospital Sírio-Libanês",
+    content: "A VitalinQ foi essencial para conseguir medicamentos oncológicos importados para meus pacientes. O processo foi rápido, seguro e totalmente transparente.",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Ana Paula Silva",
+    role: "Paciente",
+    company: "Tratamento de Esclerose Múltipla",
+    content: "Depois de meses procurando um medicamento específico, a VitalinQ resolveu tudo em menos de 2 semanas. Profissionalismo e empatia do início ao fim.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Farmácia Saúde Total",
+    role: "Responsável Técnico",
+    company: "São Paulo - SP",
+    content: "Parceria confiável para importação de medicamentos especiais. Documentação impecável e suporte técnico excepcional.",
+    rating: 5,
+  },
+];
+---
+
+<section
+  id="depoimentos"
+  class="relative bg-[#191919] py-16 sm:py-20 lg:py-28 text-white overflow-hidden"
+>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+        Confiança de quem já importou
+      </h2>
+      <p class="mt-6 text-lg text-[#fff9] leading-relaxed max-w-3xl mx-auto">
+        Médicos, pacientes, farmácias e hospitais confiam na VitalinQ para importação segura de medicamentos
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mt-12">
+      {testimonials.map((testimonial) => (
+        <div class="rounded-xl border border-[#673de6]/30 bg-[#673de6]/10 p-6 backdrop-blur-sm hover:border-[#673de6]/60 hover:bg-[#673de6]/20 transition-all">
+          <div class="flex gap-1 mb-4">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <svg
+                key={i}
+                class="w-5 h-5 text-[#673de6] fill-current"
+                viewBox="0 0 20 20"
+              >
+                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+              </svg>
+            ))}
+          </div>
+
+          <p class="text-base text-white mb-6 leading-relaxed">
+            "{testimonial.content}"
+          </p>
+
+          <div class="border-t border-[#673de6]/20 pt-4">
+            <p class="font-semibold text-white">{testimonial.name}</p>
+            <p class="text-sm text-[#fff9]">{testimonial.role}</p>
+            <p class="text-xs text-[#fff9] mt-1">{testimonial.company}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href="/#contato"
+        class="inline-flex items-center gap-2 rounded-lg bg-[#673de6] px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:shadow-[0_0_32px_rgba(112,71,235,0.4)]"
+      >
+        Iniciar minha importação
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

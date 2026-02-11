@@ -1,0 +1,74 @@
+---
+// Example page demonstrating the NavHeader component integration
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { HomeDemo } from "../components/ui/nav-header-demo";
+---
+
+<BaseLayout title="NavHeader Demo - VitalinQ">
+  <!-- The NavHeader will be displayed as a sticky header -->
+  <div class="min-h-screen bg-gradient-to-br from-neutral-50 to-white">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-8 text-neutral-900">
+          NavHeader Component Demo
+        </h1>
+        
+        <div class="prose prose-neutral max-w-none mb-12">
+          <p class="text-lg text-neutral-600 text-center">
+            This page demonstrates the animated navigation header component. 
+            Hover over the navigation items to see the smooth cursor animation.
+          </p>
+        </div>
+
+        <!-- Sticky NavHeader Demo -->
+        <div class="mb-16">
+          <HomeDemo client:load />
+        </div>
+
+        <!-- Demo content to show scroll behavior -->
+        <div class="space-y-8 mt-24">
+          <div class="rounded-2xl bg-white p-8 shadow-lg border border-neutral-200">
+            <h2 class="text-2xl font-bold mb-4 text-neutral-900">Features</h2>
+            <ul class="space-y-3 text-neutral-700">
+              <li>✨ Smooth animated cursor that follows your mouse</li>
+              <li>🎨 Mix-blend-difference for inverted text effect</li>
+              <li>📱 Responsive design for mobile and desktop</li>
+              <li>⚡ Powered by Framer Motion for smooth animations</li>
+              <li>🎯 Sticky positioning keeps it visible while scrolling</li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50 p-8 border border-purple-200">
+            <h2 class="text-2xl font-bold mb-4 text-neutral-900">Usage</h2>
+            <p class="text-neutral-700 mb-4">
+              The NavHeader component can be easily customized by editing:
+            </p>
+            <code class="block bg-neutral-900 text-green-400 p-4 rounded-lg font-mono text-sm">
+              /src/components/ui/nav-header.tsx
+            </code>
+          </div>
+
+          <div class="rounded-2xl bg-white p-8 shadow-lg border border-neutral-200">
+            <h2 class="text-2xl font-bold mb-4 text-neutral-900">Scroll Test</h2>
+            <p class="text-neutral-700">
+              Scroll down to see how the navigation stays fixed at the top of the viewport.
+            </p>
+          </div>
+
+          <!-- Extra content for scroll testing -->
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div class="rounded-2xl bg-neutral-100 p-8 border border-neutral-300">
+              <h3 class="text-xl font-semibold mb-2 text-neutral-800">
+                Section {i}
+              </h3>
+              <p class="text-neutral-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,38 @@
+<section id="confianca" aria-labelledby="confianca-heading" class="bg-neutral-50 py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <h2 id="confianca-heading" class="text-center text-2xl font-bold text-neutral-900 sm:text-3xl">
+      [Placeholder — Por Que Confiar na VitalinQ]
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-neutral-500">
+      [Placeholder — Quem somos e por que você pode confiar no nosso trabalho.]
+    </p>
+
+    <!-- Números / Métricas -->
+    <div class="mt-12 grid gap-6 sm:grid-cols-3">
+      {[
+        { value: "[000+]", label: "[Pacientes atendidos]" },
+        { value: "[00]", label: "[Especialidades cobertas]" },
+        { value: "[00%]", label: "[Satisfação dos pacientes]" },
+      ].map((stat) => (
+        <div class="rounded-xl border border-neutral-200 bg-white p-6 text-center">
+          <p class="text-3xl font-bold text-primary">{stat.value}</p>
+          <p class="mt-1 text-sm text-neutral-500">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Marcas / Parceiros -->
+    <div class="mt-12">
+      <p class="text-center text-xs font-medium uppercase tracking-wider text-neutral-400">
+        [Placeholder — Parceiros e marcas de confiança]
+      </p>
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-8">
+        {["Marca A", "Marca B", "Marca C", "Marca D"].map((brand) => (
+          <span class="rounded-lg border border-dashed border-neutral-300 px-6 py-3 text-sm text-neutral-400">
+            {brand}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

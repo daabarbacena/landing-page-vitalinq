@@ -1,0 +1,100 @@
+---
+// Placeholder para imagens médicas/farmacêuticas
+// Sugestões de imagens para adicionar em /public/assets/images/:
+// - medical-team.jpg - Equipe médica em consulta
+// - pharmaceutical-lab.jpg - Laboratório farmacêutico moderno
+// - medication-pills.jpg - Medicamentos organizados
+// - dna-research.jpg - Pesquisa científica com DNA
+---
+
+<section
+  id="visual-trust"
+  aria-label="Contexto visual médico-farmacêutico"
+  class="relative bg-[#191919] py-16 sm:py-20 overflow-hidden"
+>
+  <!-- Glow decorativo -->
+  <div
+    class="pointer-events-none absolute -left-96 top-1/2 h-96 w-96 rounded-full bg-[#673de6]/10 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <!-- Card 1: Equipe Médica -->
+      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+            👨‍⚕️
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">
+            Equipe Especializada
+          </h3>
+          <p class="text-sm text-gray-400">
+            Farmacêuticos e médicos certificados
+          </p>
+        </div>
+        <!-- Placeholder para imagem: medical-team.jpg -->
+        <div class="absolute inset-0 -z-10 bg-[#191919] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      <!-- Card 2: Laboratório -->
+      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+            🔬
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">
+            Fornecedores Certificados
+          </h3>
+          <p class="text-sm text-gray-400">
+            Laboratórios internacionais reconhecidos
+          </p>
+        </div>
+        <!-- Placeholder para imagem: pharmaceutical-lab.jpg -->
+      </div>
+
+      <!-- Card 3: Medicamentos -->
+      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+            💊
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">
+            Amplo Catálogo
+          </h3>
+          <p class="text-sm text-gray-400">
+            Acesso a medicamentos globais
+          </p>
+        </div>
+        <!-- Placeholder para imagem: medication-pills.jpg -->
+      </div>
+
+      <!-- Card 4: Pesquisa -->
+      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+        <div class="flex flex-col items-center text-center">
+          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+            🧬
+          </div>
+          <h3 class="text-lg font-semibold text-white mb-2">
+            Tecnologia Avançada
+          </h3>
+          <p class="text-sm text-gray-400">
+            Rastreabilidade de ponta a ponta
+          </p>
+        </div>
+        <!-- Placeholder para imagem: dna-research.jpg -->
+      </div>
+    </div>
+
+    <!-- Nota sobre imagens -->
+    <!--
+    Para adicionar imagens reais, você pode usar serviços como:
+    - Unsplash (https://unsplash.com) - buscar por: "medical team", "pharmaceutical lab", "pills", "dna research"
+    - Pexels (https://pexels.com) - mesmas buscas
+    - Pixabay (https://pixabay.com) - imagens gratuitas de alta qualidade
+
+    Salve as imagens em /public/assets/images/ e adicione como background:
+    style={`background-image: url('/assets/images/medical-team.jpg'); background-size: cover;`}
+    -->
+  </div>
+</section>

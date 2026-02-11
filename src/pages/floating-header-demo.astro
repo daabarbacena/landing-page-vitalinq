@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { FloatingHeader } from "../components/ui/floating-header";
+---
+
+<BaseLayout title="Floating Header Demo - VitalinQ">
+  <!-- Demo page with dots background -->
+  <div class="relative w-full min-h-screen">
+    <!-- Floating Header -->
+    <FloatingHeader client:load />
+    
+    <!-- Content -->
+    <div class="container mx-auto px-4 py-24">
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            Floating Header Component
+          </h1>
+          <p class="text-xl text-neutral-600">
+            A modern, responsive header with smooth animations and mobile menu
+          </p>
+        </div>
+
+        <!-- Feature cards -->
+        <div class="grid md:grid-cols-2 gap-6 mt-16">
+          <div class="p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200">
+            <h2 class="text-2xl font-bold mb-4">🎨 Modern Design</h2>
+            <p class="text-neutral-700">
+              Floating design with backdrop blur and smooth rounded corners
+            </p>
+          </div>
+          
+          <div class="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200">
+            <h2 class="text-2xl font-bold mb-4">📱 Fully Responsive</h2>
+            <p class="text-neutral-700">
+              Mobile-first design with hamburger menu for smaller screens
+            </p>
+          </div>
+          
+          <div class="p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200">
+            <h2 class="text-2xl font-bold mb-4">⚡ Smooth Animations</h2>
+            <p class="text-neutral-700">
+              Powered by Radix UI with seamless transitions
+            </p>
+          </div>
+          
+          <div class="p-8 rounded-2xl bg-gradient-to-br from-pink-50 to-purple-50 border border-pink-200">
+            <h2 class="text-2xl font-bold mb-4">🎯 Sticky Position</h2>
+            <p class="text-neutral-700">
+              Stays visible while scrolling for easy navigation
+            </p>
+          </div>
+        </div>
+
+        <!-- Scroll test content -->
+        {[1, 2, 3, 4, 5].map((i) => (
+          <div class="p-8 rounded-2xl bg-white border border-neutral-200 shadow-sm">
+            <h3 class="text-2xl font-bold mb-4">Section {i}</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Scroll down to see how the header remains sticky at the top. 
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Dots background pattern -->
+    <div
+      aria-hidden="true"
+      class="absolute inset-0 -z-10 size-full bg-[radial-gradient(color-mix(in_oklab,theme(colors.neutral.400)_30%,transparent)_2px,transparent_2px)] bg-[size:12px_12px]"
+    />
+  </div>
+</BaseLayout>
