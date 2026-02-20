@@ -3,22 +3,18 @@ const pillars = [
   {
     title: "Documentação orientada",
     description: "Checklist claro e revisão dos documentos necessários.",
-    icon: "📋",
   },
   {
     title: "Conformidade regulatória",
     description: "Seguimos as exigências da ANVISA e normas vigentes.",
-    icon: "✅",
   },
   {
     title: "Rastreabilidade",
     description: "Acompanhe o status do pedido com atualizações claras.",
-    icon: "📍",
   },
   {
     title: "Privacidade",
-    description: "Coletamos apenas o necessário e trattamos com responsabilidade.",
-    icon: "🔒",
+    description: "Coletamos apenas o necessário e tratamos com responsabilidade.",
   },
 ];
 ---
@@ -30,14 +26,14 @@ const pillars = [
 >
   <!-- Minimal background -->
   <div class="absolute inset-0 pointer-events-none">
-    <div 
+    <div
       class="absolute right-0 top-0 w-[600px] h-[600px] rounded-full bg-[#673de6]/5 blur-[180px]"
       aria-hidden="true"
     ></div>
   </div>
 
   <div class="relative z-10 max-w-6xl mx-auto px-6">
-    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+    <div class="grid gap-16 lg:grid-cols-2 lg:gap-20">
       <!-- Left: Header -->
       <div>
         <h2
@@ -46,40 +42,34 @@ const pillars = [
         >
           Segurança e conformidade
         </h2>
-        <p class="mt-4 text-white/40 font-light leading-relaxed">
-          Importação de medicamentos com etapas regulatórias claras. Orientamos, organizamos e acompanhamos o processo.
+        <p class="mt-6 text-white/40 font-light leading-relaxed max-w-md">
+          Importação de medicamentos com etapas regulatórias claras. Orientamos, organizamos e acompanhamos cada fase.
         </p>
 
         <!-- Quote -->
-        <div class="mt-8 p-6 rounded-2xl bg-white/5 border border-white/5">
-          <p class="text-white/60 font-light italic">
-            Se algo não estiver claro, você pergunta — e nós explicamos.
+        <div class="mt-10 p-6 rounded-2xl bg-white/5 border border-white/5">
+          <p class="text-white/50 font-light italic leading-relaxed">
+            "Se algo não estiver claro, você pergunta — e nós explicamos."
           </p>
         </div>
 
-        <!-- CTAs -->
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <!-- CTA -->
+        <div class="mt-10">
           <a
             href="/#contato"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#673de6] text-white font-light rounded-full transition-all duration-300 hover:bg-[#5a32d4]"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#673de6] text-white text-sm font-light rounded-full transition-all duration-300 hover:bg-[#5a32d4]"
           >
-            Falar com especialista
-          </a>
-          <a
-            href="/#passos"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/20 text-white/60 font-light rounded-full transition-all duration-300 hover:border-[#673de6]/50 hover:text-white"
-          >
-            Ver como funciona
+            Iniciar com segurança
           </a>
         </div>
       </div>
 
-      <!-- Right: Grid -->
+      <!-- Right: Pillars -->
       <div class="grid grid-cols-2 gap-4">
-        {pillars.map((pillar) => (
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/20 transition-all duration-500 group">
-            <div class="text-xl mb-4 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-              {pillar.icon}
+        {pillars.map((pillar, i) => (
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/20 transition-all duration-500">
+            <div class="w-8 h-8 rounded-full bg-[#673de6]/10 flex items-center justify-center mb-4">
+              <span class="text-[#673de6] text-xs font-medium">{String(i + 1).padStart(2, '0')}</span>
             </div>
             <h3 class="text-white font-light text-base mb-2">
               {pillar.title}

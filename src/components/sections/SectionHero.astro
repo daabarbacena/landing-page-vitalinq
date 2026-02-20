@@ -1,166 +1,165 @@
 ---
-import { MEDICAMENTOS_TRIAGEM_OPTIONS } from "../../types/triagem";
+import heroImage from "../../assets/images/vitalinq-pills.jpg";
 import logoVitalinQ from "../../assets/images/logos/logo-vitalinq.svg";
 
-// Filtrar opções ativas e ordená-las
-const medicamentosTriagem = MEDICAMENTOS_TRIAGEM_OPTIONS
-  .filter((opt) => opt.active !== false)
-  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+// Tech logos para partners section
+const partners = [
+  { name: "AbbVie", path: "/assets/images/techs/logo-abbvie.svg" },
+  { name: "Pfizer", path: "/assets/images/techs/logo-pfizer.svg" },
+  { name: "Novartis", path: "/assets/images/techs/logo-novartis.svg" },
+  { name: "MSD", path: "/assets/images/techs/logo-msd.svg" },
+  { name: "Bayer", path: "/assets/images/techs/logo-bayer.svg" },
+];
 
-const selectId = "medicamentos-select";
-const selectDescId = "medicamentos-description";
+const navLinks = [
+  { label: "Processo", href: "/#passos" },
+  { label: "Confiança", href: "/#confianca" },
+  { label: "Áreas", href: "/#areas-terapeuticas" },
+  { label: "Segurança", href: "/#seguranca" },
+  { label: "Contato", href: "/#contato" },
+];
 ---
 
 <section
   id="inicio"
   aria-labelledby="hero-headline"
-  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]"
+  class="w-full isolate min-h-screen overflow-hidden relative"
 >
-  <!-- Minimal background gradient -->
-  <div class="absolute inset-0 pointer-events-none">
-    <!-- Soft gradient orbs -->
-    <div 
-      class="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#673de6]/8 blur-[120px] animate-pulse-slow"
-      aria-hidden="true"
-    ></div>
-    <div 
-      class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#673de6]/5 blur-[100px] animate-pulse-slow delay-1000"
-      aria-hidden="true"
-    ></div>
-    
-    <!-- Subtle grid pattern -->
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
-  </div>
+  <!-- Background Image -->
+  <img
+    src={heroImage.src}
+    alt=""
+    class="w-full h-full object-cover absolute top-0 right-0 bottom-0 left-0"
+  />
+  <div class="pointer-events-none absolute inset-0 ring-1 ring-black/10"></div>
 
-  <!-- Content -->
-  <div class="relative z-10 w-full max-w-6xl px-6 py-32">
-    <div class="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
-      <!-- Left Column - Text -->
-      <div class="text-center lg:text-left animate-fade-in-up">
-        <!-- Logo/Brand minimal -->
-        <div class="mb-8 lg:mb-12">
-          <img 
-            src={logoVitalinQ.src} 
-            alt="VitalinQ" 
-            class="h-16 w-auto mx-auto lg:mx-0 opacity-90"
-          />
+  <!-- Overlay Gradient for text readability -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+
+  <!-- Header Navigation -->
+  <header class="z-10 relative">
+    <div class="mx-6">
+      <div class="flex items-center justify-between pt-4 md:pt-6">
+        <!-- Logo -->
+        <a
+          href="/"
+          class="inline-flex items-center h-10 w-auto"
+          aria-label="VitalinQ — Página inicial"
+        >
+          <img src={logoVitalinQ.src} alt="VitalinQ" class="h-10 w-auto" />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-1">
+          <div class="flex items-center gap-1 rounded-full bg-white/5 px-2 py-1.5 ring-1 ring-white/10 backdrop-blur">
+            {navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="px-4 py-2 text-sm font-normal text-white/80 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="/#contato"
+              class="ml-2 inline-flex items-center gap-2 rounded-full bg-[#673de6] px-4 py-2 text-sm font-medium text-white hover:bg-[#5a32d4] transition-colors"
+            >
+              Falar agora
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M7 7h10v10"></path>
+                <path d="M7 17 17 7"></path>
+              </svg>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition-colors"
+          aria-label="Abrir menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
+            <path d="M4 5h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 19h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="z-10 relative">
+    <div class="sm:pt-24 md:pt-32 lg:pt-40 max-w-7xl mx-auto pt-20 px-6 pb-16">
+      <!-- Center Content -->
+      <div class="mx-auto max-w-3xl text-center hero-content">
+        <!-- Badge -->
+        <div class="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/15 backdrop-blur fade-in-up" style="animation-delay: 100ms">
+          <span class="inline-flex items-center text-xs font-semibold text-white bg-[#673de6] rounded-full py-1 px-2.5">
+            NOVO
+          </span>
+          <span class="text-sm font-normal text-white/90">
+            Importação segura de medicamentos
+          </span>
         </div>
 
         <!-- Headline -->
         <h1
           id="hero-headline"
-          class="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.15]"
+          class="sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-4xl text-white font-light tracking-tight fade-in-up"
+          style="animation-delay: 200ms"
         >
-          Importe seu medicamento de forma <span class="text-[#673de6] font-normal">segura e simples</span>
+          Medicamentos <span class="text-[#673de6] font-normal">importados</span> com segurança
         </h1>
 
-        <!-- Subheadline - minimal -->
-        <p class="mt-6 text-lg sm:text-xl text-white/50 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-          Assessoria especializada na importação de medicamentos. Cuidamos de todo o processo para você.
+        <!-- Description -->
+        <p class="sm:text-lg text-base text-white/80 max-w-2xl mt-6 mx-auto fade-in-up" style="animation-delay: 300ms">
+          Assessoria especializada na importação de medicamentos com conformidade regulatória, documentação correta e acompanhamento transparente de todo o processo.
         </p>
 
-        <!-- Trust indicators - minimal dots -->
-        <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-white/40">
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#673de6]"></span>
-            Resposta em 24h
-          </span>
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#673de6]"></span>
-            100% seguro
-          </span>
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-[#673de6]"></span>
-            Equipe especializada
-          </span>
-        </div>
-
-        <!-- CTA Button - minimal -->
-        <div class="mt-12">
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row sm:gap-4 mt-10 gap-3 items-center justify-center fade-in-up" style="animation-delay: 400ms">
           <a
-            id="hero-whatsapp-cta"
-            href="https://wa.me/13024657818"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 px-8 py-4 bg-[#673de6] text-white font-medium rounded-full transition-all duration-300 hover:bg-[#5a32d4] hover:shadow-[0_0_30px_rgba(103,61,230,0.3)] active:scale-[0.98]"
+            href="/#contato"
+            class="inline-flex items-center gap-2 hover:bg-white/15 text-sm font-medium text-white bg-white/10 ring-white/15 ring-1 rounded-full py-3 px-6 transition-colors"
           >
-            <span>Falar com especialista</span>
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            Solicitar avaliação
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+          <a
+            href="/#passos"
+            class="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-medium text-white/90 hover:text-white transition-colors"
+          >
+            Como funciona
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+              <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path>
             </svg>
           </a>
         </div>
       </div>
 
-      <!-- Right Column - Select/Card -->
-      <div class="animate-fade-in-up delay-200">
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 lg:p-10">
-          <!-- Minimal header -->
-          <div class="text-center mb-8">
-            <h2 class="text-xl font-light text-white">
-              Qual medicamento você precisa?
-            </h2>
-            <p class="mt-2 text-sm text-white/40">
-              Selecione para orientarmos melhor
-            </p>
-          </div>
-
-          <!-- Select -->
-          <div class="space-y-4">
-            <div>
-              <label for={selectId} class="block text-sm font-medium text-white/70 mb-2">
-                Tipo de medicamento
-              </label>
-
-              <select
-                id={selectId}
-                name="medicamentos"
-                aria-describedby={selectDescId}
-                class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-white/30 transition-all focus:border-[#673de6] focus:outline-none focus:ring-1 focus:ring-[#673de6]/50"
-              >
-                <option value="" disabled selected class="bg-[#0a0a0a]">
-                  Selecione uma opção
-                </option>
-                {medicamentosTriagem.map((opt) => (
-                  <option value={opt.value} class="bg-[#0a0a0a]">{opt.label}</option>
-                ))}
-              </select>
+      <!-- Partners Section -->
+      <div class="mx-auto mt-20 max-w-5xl">
+        <p class="fade-in-up text-sm text-white/60 text-center" style="animation-delay: 500ms">
+          Operamos com fabricantes certificados globalmente
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 fade-in-up text-white/70 mt-8 items-center justify-items-center gap-6" style="animation-delay: 600ms">
+          {partners.map((partner) => (
+            <div class="inline-flex items-center justify-center bg-center w-[100px] h-[40px] opacity-70 hover:opacity-100 transition-opacity">
+              <img src={partner.path} alt={partner.name} class="h-full w-full object-contain" />
             </div>
-
-            <p id={selectDescId} class="text-xs text-white/30">
-              Atualizado conforme disponibilidade e regulamentação.
-            </p>
-          </div>
-
-          <!-- Subtle note -->
-          <p class="mt-6 text-center text-xs text-white/30">
-            ⏱️ Resposta garantida em até 24h
-          </p>
+          ))}
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Scroll indicator - minimal -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
-    <div class="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-2">
-      <div class="w-1 h-2 bg-white/40 rounded-full animate-scroll-dot"></div>
     </div>
   </div>
 </section>
 
 <style>
-  @option {
-    color-scheme: dark;
-  }
-
-  option {
-    background-color: #0a0a0a;
-    color: white;
-  }
-
-  /* Animations */
-  @keyframes fade-in-up {
+  @keyframes fadeSlideIn {
     from {
       opacity: 0;
       transform: translateY(20px);
@@ -171,71 +170,15 @@ const selectDescId = "medicamentos-description";
     }
   }
 
-  @keyframes pulse-slow {
-    0%, 100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
-  }
-
-  @keyframes scroll-dot {
-    0%, 100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(4px);
-      opacity: 0.5;
-    }
-  }
-
-  @keyframes bounce-slow {
-    0%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    50% {
-      transform: translateX(-50%) translateY(-8px);
-    }
-  }
-
-  .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out forwards;
-  }
-
-  .animate-fade-in-up.delay-200 {
-    animation-delay: 0.2s;
+  .fade-in-up {
+    animation: fadeSlideIn 0.8s ease-out forwards;
     opacity: 0;
   }
 
-  .animate-pulse-slow {
-    animation: pulse-slow 8s ease-in-out infinite;
-  }
-
-  .delay-1000 {
-    animation-delay: 1s;
-  }
-
-  .animate-scroll-dot {
-    animation: scroll-dot 1.5s ease-in-out infinite;
-  }
-
-  .animate-bounce-slow {
-    animation: bounce-slow 2s ease-in-out infinite;
-  }
-
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .animate-fade-in-up,
-    .animate-pulse-slow,
-    .animate-scroll-dot,
-    .animate-bounce-slow {
+    .fade-in-up {
       animation: none;
       opacity: 1;
-      transform: none;
     }
   }
 </style>
