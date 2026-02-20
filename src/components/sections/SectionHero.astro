@@ -4,11 +4,11 @@ import logoVitalinQ from "../../assets/images/logos/logo-vitalinq.svg";
 
 // Tech logos para partners section
 const partners = [
-  { name: "AbbVie", path: "/assets/images/techs/logo-abbvie.svg" },
-  { name: "Pfizer", path: "/assets/images/techs/logo-pfizer.svg" },
-  { name: "Novartis", path: "/assets/images/techs/logo-novartis.svg" },
-  { name: "MSD", path: "/assets/images/techs/logo-msd.svg" },
-  { name: "Bayer", path: "/assets/images/techs/logo-bayer.svg" },
+  { name: "AbbVie", path: "/assets/images/techs/logo-abbvie.svg", scale: 1 },
+  { name: "Pfizer", path: "/assets/images/techs/logo-pfizer.svg", scale: 1 },
+  { name: "Novartis", path: "/assets/images/techs/logo-novartis.svg", scale: 1.1 },
+  { name: "MSD", path: "/assets/images/techs/logo-msd.svg", scale: 1 },
+  { name: "Bayer", path: "/assets/images/techs/logo-bayer.svg", scale: 1.2 },
 ];
 
 const navLinks = [
@@ -148,8 +148,8 @@ const navLinks = [
         </p>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 fade-in-up text-white/70 mt-8 items-center justify-items-center gap-6" style="animation-delay: 600ms">
           {partners.map((partner) => (
-            <div class="inline-flex items-center justify-center bg-center w-[100px] h-[40px] opacity-70 hover:opacity-100 transition-opacity">
-              <img src={partner.path} alt={partner.name} class="h-full w-full object-contain" />
+            <div class="inline-flex items-center justify-center bg-center opacity-70 hover:opacity-100 transition-opacity" style={`width: ${100 * partner.scale}px; height: ${40 * partner.scale}px;`}>
+              <img src={partner.path} alt={partner.name} class="h-full w-full object-contain filter brightness-0 invert" />
             </div>
           ))}
         </div>
