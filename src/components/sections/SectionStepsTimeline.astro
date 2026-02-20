@@ -4,8 +4,8 @@
 <section
   id="passos"
   aria-labelledby="steps-heading"
-  class="relative py-24 sm:py-32 lg:py-40"
-  style="background: linear-gradient(135deg, #ffffff 0%, #f5f3ff 50%, #faf7ff 100%);"
+  class="relative py-24 sm:py-32 lg:py-40 overflow-hidden"
+  style="background: linear-gradient(90deg, rgba(103, 61, 230, 0.03) 0%, #f8f7f5 100%);"
 >
   <!-- Minimal background -->
   <div class="absolute inset-0 pointer-events-none">
@@ -29,85 +29,76 @@
       </p>
     </div>
 
-    <!-- Timeline - minimal -->
+    <!-- Timeline - Progress bar style -->
     <div class="relative">
-      <!-- Vertical line -->
-      <div class="absolute left-[19px] sm:left-1/2 sm:-translate-x-px top-6 bottom-6 w-0.5 bg-[#673de6]/30"></div>
+      <!-- Steps Progress Container -->
+      <div class="mb-16">
+        <!-- Progress Bar Track -->
+        <div class="mb-8 flex items-center justify-between relative">
+          <!-- Connecting line behind steps -->
+          <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-[#673de6]/20 transform -translate-y-1/2" style="width: calc(100% - 20px); margin-left: 10px;"></div>
 
-      <div class="space-y-12">
+          <!-- Step indicators -->
+          {[1, 2, 3, 4, 5].map((num) => (
+            <div class="relative z-10 flex flex-col items-center flex-1">
+              <div class="w-10 h-10 rounded-full bg-[#673de6] border-4 border-[#f8f7f5] flex items-center justify-center text-white font-semibold shadow-sm">
+                {num}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Steps Content Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <!-- Step 1 -->
-        <div class="relative flex items-start gap-6">
-          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6] border border-[#673de6] flex items-center justify-center text-white text-sm font-light">
-            1
-          </div>
-          <div class="flex-1 sm:pl-12">
-            <h3 class="text-gray-900 font-light text-lg mb-1">
-              Você envia sua receita
-            </h3>
-            <p class="text-gray-600 text-sm font-light leading-relaxed">
-              Compartilhe sua prescrição médica. Nossa equipe analisa e orienta os próximos passos.
-            </p>
-          </div>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <h3 class="text-gray-900 font-semibold text-base mb-2">
+            Você envia sua receita
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Compartilhe sua prescrição médica. Nossa equipe analisa e orienta os próximos passos.
+          </p>
         </div>
 
         <!-- Step 2 -->
-        <div class="relative flex items-start gap-6">
-          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6] border border-[#673de6] flex items-center justify-center text-white text-sm font-light">
-            2
-          </div>
-          <div class="flex-1 sm:pl-12">
-            <h3 class="text-gray-900 font-light text-lg mb-1">
-              Preparamos a documentação
-            </h3>
-            <p class="text-gray-600 text-sm font-light leading-relaxed">
-              Cuidamos da parte regulatória conforme as exigências da ANVISA.
-            </p>
-          </div>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <h3 class="text-gray-900 font-semibold text-base mb-2">
+            Preparamos a documentação
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Cuidamos da parte regulatória conforme as exigências da ANVISA.
+          </p>
         </div>
 
         <!-- Step 3 -->
-        <div class="relative flex items-start gap-6">
-          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6] border border-[#673de6] flex items-center justify-center text-white text-sm font-light">
-            3
-          </div>
-          <div class="flex-1 sm:pl-12">
-            <h3 class="text-gray-900 font-light text-lg mb-1">
-              Realizamos a importação
-            </h3>
-            <p class="text-gray-600 text-sm font-light leading-relaxed">
-              Compramos diretamente de fabricantes e distribuidores internacionais homologados.
-            </p>
-          </div>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <h3 class="text-gray-900 font-semibold text-base mb-2">
+            Realizamos a importação
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Compramos diretamente de fabricantes e distribuidores internacionais homologados.
+          </p>
         </div>
 
         <!-- Step 4 -->
-        <div class="relative flex items-start gap-6">
-          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6] border border-[#673de6] flex items-center justify-center text-white text-sm font-light">
-            4
-          </div>
-          <div class="flex-1 sm:pl-12">
-            <h3 class="text-gray-900 font-light text-lg mb-1">
-              Acompanhamos o processo
-            </h3>
-            <p class="text-gray-600 text-sm font-light leading-relaxed">
-              Do embarque ao desembaraço aduaneiro, você recebe atualizações claras.
-            </p>
-          </div>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <h3 class="text-gray-900 font-semibold text-base mb-2">
+            Acompanhamos o processo
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Do embarque ao desembaraço aduaneiro, você recebe atualizações claras.
+          </p>
         </div>
 
         <!-- Step 5 -->
-        <div class="relative flex items-start gap-6">
-          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6] border border-[#673de6] flex items-center justify-center text-white text-sm font-light">
-            5
-          </div>
-          <div class="flex-1 sm:pl-12">
-            <h3 class="text-gray-900 font-light text-lg mb-1">
-              Entrega e suporte
-            </h3>
-            <p class="text-gray-600 text-sm font-light leading-relaxed">
-              Seu medicamento chega com rastreabilidade e permanecemos disponíveis para suporte.
-            </p>
-          </div>
+        <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <h3 class="text-gray-900 font-semibold text-base mb-2">
+            Entrega e suporte
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Seu medicamento chega com rastreabilidade e permanecemos disponíveis para suporte.
+          </p>
         </div>
       </div>
     </div>
@@ -126,8 +117,8 @@
     </div>
   </div>
 
-  <!-- Blur transition effect -->
-  <div class="absolute bottom-0 left-0 right-0 h-20 pointer-events-none" style="background: linear-gradient(to bottom, transparent, rgba(10, 10, 10, 0.1)); backdrop-filter: blur(10px);"></div>
+  <!-- Horizontal fade effect from roxo to off-white -->
+  <div class="absolute right-0 top-0 bottom-0 w-40 pointer-events-none" style="background: linear-gradient(90deg, transparent, #f8f7f5);"></div>
 </section>
 
 <style>
@@ -142,19 +133,13 @@
     }
   }
 
-  section > div > div:nth-child(3) > div > div {
+  .fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
     opacity: 0;
   }
 
-  section > div > div:nth-child(3) > div > div:nth-child(1) { animation-delay: 0ms; }
-  section > div > div:nth-child(3) > div > div:nth-child(2) { animation-delay: 100ms; }
-  section > div > div:nth-child(3) > div > div:nth-child(3) { animation-delay: 200ms; }
-  section > div > div:nth-child(3) > div > div:nth-child(4) { animation-delay: 300ms; }
-  section > div > div:nth-child(3) > div > div:nth-child(5) { animation-delay: 400ms; }
-
   @media (prefers-reduced-motion: reduce) {
-    section > div > div:nth-child(3) > div > div {
+    .fade-in-up {
       animation: none;
       opacity: 1;
     }
