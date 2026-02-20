@@ -1,100 +1,110 @@
 ---
-// Placeholder para imagens médicas/farmacêuticas
-// Sugestões de imagens para adicionar em /public/assets/images/:
-// - medical-team.jpg - Equipe médica em consulta
-// - pharmaceutical-lab.jpg - Laboratório farmacêutico moderno
-// - medication-pills.jpg - Medicamentos organizados
-// - dna-research.jpg - Pesquisa científica com DNA
 ---
 
 <section
   id="visual-trust"
   aria-label="Contexto visual médico-farmacêutico"
-  class="relative bg-[#191919] py-16 sm:py-20 overflow-hidden"
+  class="relative bg-[#0a0a0a] py-24 sm:py-32 overflow-hidden"
 >
-  <!-- Glow decorativo -->
-  <div
-    class="pointer-events-none absolute -left-96 top-1/2 h-96 w-96 rounded-full bg-[#673de6]/10 blur-3xl"
-    aria-hidden="true"
-  ></div>
+  <!-- Minimal background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div 
+      class="absolute -left-1/3 top-1/2 w-[800px] h-[800px] rounded-full bg-[#673de6]/5 blur-[180px]"
+      aria-hidden="true"
+    ></div>
+  </div>
 
-  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-      <!-- Card 1: Equipe Médica -->
-      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+      <!-- Card 1 -->
+      <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/20 transition-all duration-500">
         <div class="flex flex-col items-center text-center">
-          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+          <div class="mb-4 w-12 h-12 flex items-center justify-center rounded-full bg-[#673de6]/10 text-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">
             👨‍⚕️
           </div>
-          <h3 class="text-lg font-semibold text-white mb-2">
+          <h3 class="text-white/80 font-light text-base">
             Equipe Especializada
           </h3>
-          <p class="text-sm text-gray-400">
+          <p class="text-white/40 text-xs mt-2">
             Farmacêuticos e médicos certificados
           </p>
         </div>
-        <!-- Placeholder para imagem: medical-team.jpg -->
-        <div class="absolute inset-0 -z-10 bg-[#191919] opacity-0 group-hover:opacity-100 transition-opacity"></div>
       </div>
 
-      <!-- Card 2: Laboratório -->
-      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+      <!-- Card 2 -->
+      <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/20 transition-all duration-500">
         <div class="flex flex-col items-center text-center">
-          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+          <div class="mb-4 w-12 h-12 flex items-center justify-center rounded-full bg-[#673de6]/10 text-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">
             🔬
           </div>
-          <h3 class="text-lg font-semibold text-white mb-2">
+          <h3 class="text-white/80 font-light text-base">
             Fornecedores Certificados
           </h3>
-          <p class="text-sm text-gray-400">
-            Laboratórios internacionais reconhecidos
+          <p class="text-white/40 text-xs mt-2">
+            Laboratórios internacionais
           </p>
         </div>
-        <!-- Placeholder para imagem: pharmaceutical-lab.jpg -->
       </div>
 
-      <!-- Card 3: Medicamentos -->
-      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+      <!-- Card 3 -->
+      <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/20 transition-all duration-500">
         <div class="flex flex-col items-center text-center">
-          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+          <div class="mb-4 w-12 h-12 flex items-center justify-center rounded-full bg-[#673de6]/10 text-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">
             💊
           </div>
-          <h3 class="text-lg font-semibold text-white mb-2">
+          <h3 class="text-white/80 font-light text-base">
             Amplo Catálogo
           </h3>
-          <p class="text-sm text-gray-400">
-            Acesso a medicamentos globais
+          <p class="text-white/40 text-xs mt-2">
+            Medicamentos globais
           </p>
         </div>
-        <!-- Placeholder para imagem: medication-pills.jpg -->
       </div>
 
-      <!-- Card 4: Pesquisa -->
-      <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#673de6]/20 to-[#673de6]/5 p-6 border border-[#673de6]/30 hover:border-[#673de6]/60 transition-all">
+      <!-- Card 4 -->
+      <div class="group p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/20 transition-all duration-500">
         <div class="flex flex-col items-center text-center">
-          <div class="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg">
+          <div class="mb-4 w-12 h-12 flex items-center justify-center rounded-full bg-[#673de6]/10 text-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">
             🧬
           </div>
-          <h3 class="text-lg font-semibold text-white mb-2">
+          <h3 class="text-white/80 font-light text-base">
             Tecnologia Avançada
           </h3>
-          <p class="text-sm text-gray-400">
-            Rastreabilidade de ponta a ponta
+          <p class="text-white/40 text-xs mt-2">
+            Rastreabilidade total
           </p>
         </div>
-        <!-- Placeholder para imagem: dna-research.jpg -->
       </div>
     </div>
-
-    <!-- Nota sobre imagens -->
-    <!--
-    Para adicionar imagens reais, você pode usar serviços como:
-    - Unsplash (https://unsplash.com) - buscar por: "medical team", "pharmaceutical lab", "pills", "dna research"
-    - Pexels (https://pexels.com) - mesmas buscas
-    - Pixabay (https://pixabay.com) - imagens gratuitas de alta qualidade
-
-    Salve as imagens em /public/assets/images/ e adicione como background:
-    style={`background-image: url('/assets/images/medical-team.jpg'); background-size: cover;`}
-    -->
   </div>
 </section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section > div > div > div {
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  section > div > div > div:nth-child(1) { animation-delay: 0ms; }
+  section > div > div > div:nth-child(2) { animation-delay: 100ms; }
+  section > div > div > div:nth-child(3) { animation-delay: 200ms; }
+  section > div > div > div:nth-child(4) { animation-delay: 300ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    section > div > div > div {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

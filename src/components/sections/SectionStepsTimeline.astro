@@ -1,144 +1,158 @@
 ---
-const steps = [
-  {
-    number: 1,
-    title: "Você envia sua receita",
-    description: "Compartilhe sua prescrição médica. Nossa equipe analisa e orienta os próximos passos.",
-  },
-  {
-    number: 2,
-    title: "Preparamos a documentação",
-    description: "Cuidamos da parte regulatória conforme as exigências da ANVISA.",
-  },
-  {
-    number: 3,
-    title: "Realizamos a importação",
-    description: "Compramos diretamente de fabricantes e distribuidores internacionais homologados.",
-  },
-  {
-    number: 4,
-    title: "Acompanhamos o processo",
-    description: "Do embarque ao desembaraço aduaneiro, você recebe atualizações claras.",
-  },
-  {
-    number: 5,
-    title: "Entrega e suporte contínuo",
-    description: "Seu medicamento chega com rastreabilidade e permanecemos disponíveis para suporte.",
-  },
-];
 ---
 
 <section
   id="passos"
   aria-labelledby="steps-heading"
-  class="relative bg-white py-16 sm:py-20 lg:py-28"
+  class="relative bg-[#0a0a0a] py-24 sm:py-32 lg:py-40"
 >
-  <!-- Decoração de fundo sutil -->
-  <div
-    class="pointer-events-none absolute inset-0 overflow-hidden"
-    aria-hidden="true"
-  >
-    <div
-      class="absolute right-0 top-1/4 h-96 w-96 rounded-full bg-[#673de6]/5 blur-3xl"
+  <!-- Minimal background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div 
+      class="absolute right-0 top-1/4 w-[500px] h-[500px] rounded-full bg-[#673de6]/5 blur-[150px]"
+      aria-hidden="true"
     ></div>
   </div>
 
-  <div class="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-    <!-- Cabeçalho -->
-    <div class="text-center">
+  <div class="relative z-10 max-w-4xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center mb-16">
       <h2
         id="steps-heading"
-        class="text-3xl font-bold leading-tight tracking-tight text-[#191919] sm:text-4xl lg:text-5xl"
+        class="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight"
       >
-        Importe seu medicamento em 5 etapas orientadas
+        5 etapas simples
       </h2>
-      <p class="mt-6 text-lg text-neutral-600 max-w-3xl mx-auto">
-        Você entende cada etapa. Nós cuidamos da documentação, do processo de importação e do acompanhamento até a entrega.
+      <p class="mt-4 text-white/40 font-light max-w-md mx-auto">
+        Você entende cada etapa. Nós cuidamos da documentação e do processo.
       </p>
     </div>
 
-    <!-- Timeline -->
-    <ol class="mt-16 space-y-0 relative lg:mt-20">
-      <!-- Linha vertical animada conectando todas as etapas -->
-      <div class="absolute left-6 top-6 bottom-6 w-0.5 bg-[#191919]/10 sm:left-7 lg:left-1/2 lg:-translate-x-px overflow-hidden">
-        <div class="animated-line h-full w-full bg-gradient-to-b from-[#673de6] to-[#5025d1] origin-top"></div>
+    <!-- Timeline - minimal -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-[19px] sm:left-1/2 sm:-translate-x-px top-6 bottom-6 w-0.5 bg-white/10"></div>
+
+      <div class="space-y-12">
+        <!-- Step 1 -->
+        <div class="relative flex items-start gap-6">
+          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6]/20 border border-[#673de6]/30 flex items-center justify-center text-[#673de6] text-sm font-light">
+            1
+          </div>
+          <div class="flex-1 sm:pl-12">
+            <h3 class="text-white font-light text-lg mb-1">
+              Você envia sua receita
+            </h3>
+            <p class="text-white/40 text-sm font-light leading-relaxed">
+              Compartilhe sua prescrição médica. Nossa equipe analisa e orienta os próximos passos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative flex items-start gap-6">
+          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6]/20 border border-[#673de6]/30 flex items-center justify-center text-[#673de6] text-sm font-light">
+            2
+          </div>
+          <div class="flex-1 sm:pl-12">
+            <h3 class="text-white font-light text-lg mb-1">
+              Preparamos a documentação
+            </h3>
+            <p class="text-white/40 text-sm font-light leading-relaxed">
+              Cuidamos da parte regulatória conforme as exigências da ANVISA.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative flex items-start gap-6">
+          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6]/20 border border-[#673de6]/30 flex items-center justify-center text-[#673de6] text-sm font-light">
+            3
+          </div>
+          <div class="flex-1 sm:pl-12">
+            <h3 class="text-white font-light text-lg mb-1">
+              Realizamos a importação
+            </h3>
+            <p class="text-white/40 text-sm font-light leading-relaxed">
+              Compramos diretamente de fabricantes e distribuidores internacionais homologados.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative flex items-start gap-6">
+          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6]/20 border border-[#673de6]/30 flex items-center justify-center text-[#673de6] text-sm font-light">
+            4
+          </div>
+          <div class="flex-1 sm:pl-12">
+            <h3 class="text-white font-light text-lg mb-1">
+              Acompanhamos o processo
+            </h3>
+            <p class="text-white/40 text-sm font-light leading-relaxed">
+              Do embarque ao desembaraço aduaneiro, você recebe atualizações claras.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative flex items-start gap-6">
+          <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#673de6]/20 border border-[#673de6]/30 flex items-center justify-center text-[#673de6] text-sm font-light">
+            5
+          </div>
+          <div class="flex-1 sm:pl-12">
+            <h3 class="text-white font-light text-lg mb-1">
+              Entrega e suporte
+            </h3>
+            <p class="text-white/40 text-sm font-light leading-relaxed">
+              Seu medicamento chega com rastreabilidade e permanecemos disponíveis para suporte.
+            </p>
+          </div>
+        </div>
       </div>
-      
-      {
-        steps.map((step, idx) => {
-          const isLast = idx === steps.length - 1;
-          return (
-            <li class="relative pb-12 sm:pb-16 lg:pb-20">
-              {/* Grid container para alternância no desktop */}
-              <div class="flex gap-4 sm:gap-6 lg:gap-0">
-                {/* Nó / Número */}
-                <div class="flex flex-col items-center flex-shrink-0 relative z-10">
-                  <div class="relative flex h-12 w-12 items-center justify-center rounded-full bg-[#673de6] text-xl font-bold text-white shadow-lg ring-4 ring-white">
-                    {step.number}
-                  </div>
-                </div>
-
-                {/* Card do passo */}
-                <div class="flex-1 min-w-0 pt-1">
-                  <div class="rounded-2xl border border-[#191919]/10 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow">
-                    {/* Badge opcional */}
-                    <span class="inline-block rounded-full bg-[#673de6]/10 px-3 py-1 text-xs font-semibold text-[#673de6] mb-4">
-                      Etapa {step.number}
-                    </span>
-
-                    <h3 class="text-xl font-semibold text-[#191919]">
-                      {step.title}
-                    </h3>
-                    <p class="mt-2 text-sm sm:text-base text-neutral-600 leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </li>
-          );
-        })
-      }
-    </ol>
-
-    <style>
-      @keyframes drawLine {
-        from {
-          transform: scaleY(0);
-        }
-        to {
-          transform: scaleY(1);
-        }
-      }
-
-      .animated-line {
-        animation: drawLine 2s ease-out forwards;
-        animation-delay: 0.3s;
-        transform: scaleY(0);
-      }
-    </style>
-
-    <!-- Microtexto de confiança -->
-    <div class="mt-12 text-center">
-      <p class="text-xs sm:text-sm text-neutral-400 italic">
-        Em cada etapa, você recebe orientação clara e suporte humano.
-      </p>
     </div>
 
-    <!-- CTAs -->
-    <div class="mt-12 flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 lg:mt-16">
+    <!-- CTA -->
+    <div class="mt-16 text-center">
       <a
         href="/#contato"
-        class="rounded-lg bg-[#673de6] px-6 py-3 text-center font-semibold text-white shadow-lg transition-all hover:shadow-[0_0_32px_rgba(112,71,235,0.4)] focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-[#673de6] text-white font-light rounded-full transition-all duration-300 hover:bg-[#5a32d4] hover:shadow-[0_0_30px_rgba(103,61,230,0.3)]"
       >
-        Solicitar cotação
-      </a>
-      <a
-        href="/#contato"
-        class="rounded-lg border-2 border-[#673de6] px-6 py-3 text-center font-semibold text-[#673de6] transition-colors hover:bg-[#673de6]/5 focus:outline-none focus:ring-2 focus:ring-[#673de6] focus:ring-offset-2"
-      >
-        Tirar dúvidas
+        <span>Iniciar processo</span>
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section > div > div:nth-child(3) > div > div {
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  section > div > div:nth-child(3) > div > div:nth-child(1) { animation-delay: 0ms; }
+  section > div > div:nth-child(3) > div > div:nth-child(2) { animation-delay: 100ms; }
+  section > div > div:nth-child(3) > div > div:nth-child(3) { animation-delay: 200ms; }
+  section > div > div:nth-child(3) > div > div:nth-child(4) { animation-delay: 300ms; }
+  section > div > div:nth-child(3) > div > div:nth-child(5) { animation-delay: 400ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    section > div > div:nth-child(3) > div > div {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

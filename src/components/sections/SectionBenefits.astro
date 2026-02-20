@@ -12,10 +12,10 @@ const benefits: Benefit[] = [
     title: "Seguro",
     description: "Total conformidade regulatória e transparência",
     features: [
-      "Parcerias com fabricantes certificados internacionalmente",
-      "Rastreabilidade completa de cada etapa do processo",
-      "Documentação oficial ANVISA e auditável",
-      "Garantia de autenticidade e procedência"
+      "Parcerias com fabricantes certificados",
+      "Rastreabilidade completa",
+      "Documentação oficial ANVISA",
+      "Garantia de autenticidade"
     ]
   },
   {
@@ -23,21 +23,21 @@ const benefits: Benefit[] = [
     title: "Simples",
     description: "Processo descomplicado do início ao fim",
     features: [
-      "Assessoria farmacêutica especializada 24/7",
-      "Gestão 100% online da documentação",
-      "Comunicação clara e objetiva a cada etapa",
-      "Suporte humanizado em português"
+      "Assessoria 24/7",
+      "Gestão online da documentação",
+      "Comunicação clara a cada etapa",
+      "Suporte humanizado"
     ]
   },
   {
     icon: "🚀",
     title: "Rápido",
-    description: "Agilidade sem comprometer qualidade ou segurança",
+    description: "Agilidade sem comprometer segurança",
     features: [
-      "Triagem farmacêutica em até 24 horas",
-      "Processos de importação otimizados",
-      "Relação direta com fabricantes globais",
-      "Acompanhamento logístico em tempo real"
+      "Triagem em até 24 horas",
+      "Processos otimizados",
+      "Relação direta com fabricantes",
+      "Acompanhamento em tempo real"
     ]
   }
 ];
@@ -46,91 +46,102 @@ const benefits: Benefit[] = [
 <section
   id="beneficios"
   aria-labelledby="benefits-heading"
-  class="relative bg-white py-20 sm:py-28 lg:py-32 overflow-hidden"
+  class="relative bg-[#0a0a0a] py-24 sm:py-32 lg:py-40"
 >
-  <!-- Decoração de fundo -->
-  <div
-    class="pointer-events-none absolute -right-48 top-0 h-96 w-96 rounded-full bg-[#673de6]/5 blur-3xl"
-    aria-hidden="true"
-  ></div>
+  <!-- Minimal background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div 
+      class="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#673de6]/5 blur-[150px]"
+      aria-hidden="true"
+    ></div>
+  </div>
 
-  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <!-- Cabeçalho -->
-    <div class="mx-auto max-w-3xl text-center mb-16">
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <!-- Header - minimal -->
+    <div class="text-center mb-16 sm:mb-20">
       <h2
         id="benefits-heading"
-        class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl"
+        class="text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight"
       >
         Por que escolher a <span class="text-[#673de6]">VitalinQ</span>?
       </h2>
-      <p class="mt-4 text-lg text-gray-600 leading-relaxed">
-        Assessoria completa na importação de medicamentos para Médicos, Pacientes,
-        Clínicas, Farmácias e Hospitais. Transformamos complexidade em simplicidade.
+      <p class="mt-4 text-white/40 max-w-xl mx-auto font-light">
+        Assessoria completa na importação de medicamentos. Transformamos complexidade em simplicidade.
       </p>
     </div>
 
-    <!-- Grid de benefícios -->
-    <div class="grid gap-8 md:grid-cols-3">
-      {benefits.map((benefit) => (
-        <div class="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-xl hover:border-[#673de6]/50 hover:-translate-y-1">
-          <!-- Ícone -->
-          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-[#673de6] to-[#5025d1] text-4xl shadow-lg shadow-[#673de6]/20">
+    <!-- Benefits Grid -->
+    <div class="grid gap-6 md:grid-cols-3">
+      {benefits.map((benefit, idx) => (
+        <div 
+          class="group relative p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/30 transition-all duration-500 hover:bg-white/[0.03]"
+          style={`animation-delay: ${idx * 150}ms`}
+        >
+          <!-- Icon - minimal -->
+          <div class="mb-6 text-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300">
             {benefit.icon}
           </div>
 
-          <!-- Conteúdo -->
-          <h3 class="text-2xl font-bold text-gray-900 mb-3">
+          <!-- Title -->
+          <h3 class="text-xl font-light text-white mb-2">
             {benefit.title}
           </h3>
-          <p class="text-gray-600 mb-6 leading-relaxed">
+
+          <!-- Description -->
+          <p class="text-white/50 text-sm mb-6 font-light">
             {benefit.description}
           </p>
 
-          <!-- Features -->
-          <ul class="space-y-3">
+          <!-- Features - minimal list -->
+          <ul class="space-y-2">
             {benefit.features.map((feature) => (
-              <li class="flex items-start gap-3 text-sm text-gray-700">
-                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-[#673de6]/10 text-[#673de6] flex-shrink-0 mt-0.5">
-                  ✓
-                </span>
+              <li class="flex items-center gap-2 text-xs text-white/40">
+                <span class="w-1 h-1 rounded-full bg-[#673de6]/50"></span>
                 <span>{feature}</span>
               </li>
             ))}
           </ul>
 
-          <!-- Hover effect -->
-          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#673de6]/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
+          <!-- Hover line -->
+          <div class="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#673de6]/0 to-transparent group-hover:via-[#673de6]/50 transition-all duration-500"></div>
         </div>
       ))}
     </div>
 
-    <!-- CTA de conversão -->
-    <div class="mt-16 bg-gradient-to-r from-[#673de6] to-[#5025d1] rounded-2xl p-8 md:p-12 text-center shadow-2xl shadow-[#673de6]/30">
-      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
-        Pronto para importar seu medicamento?
-      </h3>
-      <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-        Não perca mais tempo. Nossa equipe especializada está pronta para guiá-lo em cada etapa do processo.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/#contato"
-          class="rounded-lg bg-white px-8 py-4 text-lg font-semibold text-[#673de6] shadow-lg transition-all hover:shadow-xl hover:scale-105 active:scale-95"
-        >
-          Iniciar importação agora
-        </a>
-        <a
-          href="/#passos"
-          class="rounded-lg border-2 border-white px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-white/10"
-        >
-          Ver como funciona
-        </a>
-      </div>
-
-      <!-- Elemento de urgência -->
-      <p class="mt-6 text-sm text-white/70">
-        ⏱️ Resposta em até 24 horas • 🔒 Processo 100% seguro e certificado
-      </p>
+    <!-- CTA - minimal -->
+    <div class="mt-16 text-center">
+      <a
+        href="/#contato"
+        class="inline-flex items-center gap-2 px-6 py-3 text-white/60 hover:text-white text-sm transition-colors group"
+      >
+        <span>Falar com um especialista</span>
+        <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
+      </a>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  section > div > div:nth-child(2) > div {
+    animation: fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    section > div > div:nth-child(2) > div {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = "VitalinQ — Cuidado inteligente com a confiança que você merece. Triagem e orientação em saúde com segurança e profissionalismo.",
+  description = "VitalinQ — Assessoria especializada na importação de medicamentos para Médicos, Pacientes, Clínicas, Farmácias e Hospitais.",
 } = Astro.props;
 ---
 
@@ -34,16 +34,16 @@ const {
     <title>{title}</title>
   </head>
 
-  <body class="min-h-screen bg-white text-neutral-800 antialiased">
+  <body class="min-h-screen bg-[#0a0a0a] text-white antialiased">
     <!-- Skip to content -->
     <a
       href="#main-content"
-      class="fixed left-2 top-2 z-50 -translate-y-16 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+      class="fixed left-2 top-2 z-50 -translate-y-16 rounded-lg bg-[#673de6] px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
     >
       Pular para o conteúdo
     </a>
 
-    <!-- Global Fixed Header (outside main to avoid stacking context issues) -->
+    <!-- Global Fixed Header -->
     <FloatingHeaderWrapper />
 
     <main id="main-content">
