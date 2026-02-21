@@ -106,17 +106,28 @@ const navPills = [
     </div>
   </header>
 
-  <!-- Mobile Menu Dropdown -->
+  <!-- Mobile Menu Fullscreen Overlay -->
   <div
     id="mobile-menu"
-    class="mobile-menu-dropdown md:hidden"
+    class="mobile-menu-overlay md:hidden"
   >
-    <nav class="flex flex-col border-t border-neutral-200/50">
+    <!-- Close button inside overlay -->
+    <button
+      id="mobile-menu-close"
+      class="absolute top-5 right-5 flex h-12 w-12 items-center justify-center rounded-full text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800 transition-colors z-10"
+      aria-label="Fechar menu"
+    >
+      <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <nav class="flex flex-col items-center justify-center h-full gap-2">
       {
         navSections.map((item) => (
           <a
             href={item.href}
-            class="mobile-link border-b border-neutral-100 px-6 py-4 text-base font-medium text-neutral-700 hover:bg-neutral-50 hover:text-primary transition-colors"
+            class="mobile-link px-6 py-3 text-2xl font-medium text-neutral-700 hover:text-[#673de6] transition-colors"
           >
             {item.label}
           </a>
@@ -127,7 +138,7 @@ const navPills = [
         navPills.map((pill) => (
           <a
             href={pill.href}
-            class="mobile-link border-b border-neutral-100 px-6 py-4 text-base font-medium text-white bg-green-500 hover:bg-green-600 transition-colors"
+            class="mobile-link mt-4 px-8 py-3 text-xl font-semibold text-white bg-green-600 hover:bg-green-500 rounded-full transition-colors"
           >
             {pill.label}
           </a>
@@ -219,18 +230,24 @@ const navPills = [
     height: 2rem;
   }
 
-  .mobile-menu-dropdown {
+  .mobile-menu-overlay {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    top: 73px;
+    bottom: 0;
     z-index: 9998;
-    max-height: 0;
-    overflow: hidden;
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
   }
 </style>
 
@@ -238,6 +255,7 @@ const navPills = [
   const wrapper = document.getElementById("header-wrapper") as HTMLElement;
   const mobileBtn = document.getElementById("mobile-menu-btn") as HTMLButtonElement;
   const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+  const mobileCloseBtn = document.getElementById("mobile-menu-close") as HTMLButtonElement;
   const hamburgerIcon = document.getElementById("hamburger-icon") as unknown as SVGElement;
   const closeIcon = document.getElementById("close-icon") as unknown as SVGElement;
   const mobileLinks = document.querySelectorAll(".mobile-link");
@@ -265,14 +283,14 @@ const navPills = [
     mobileBtn?.setAttribute("aria-expanded", String(isMenuOpen));
 
     if (isMenuOpen) {
-      mobileMenu.style.maxHeight = "calc(100vh - 73px)";
+      mobileMenu.classList.add("open");
       hamburgerIcon.style.opacity = "0";
       hamburgerIcon.style.transform = "rotate(180deg)";
       closeIcon.style.opacity = "1";
       closeIcon.style.transform = "rotate(0deg)";
       document.body.style.overflow = "hidden";
     } else {
-      mobileMenu.style.maxHeight = "0";
+      mobileMenu.classList.remove("open");
       hamburgerIcon.style.opacity = "1";
       hamburgerIcon.style.transform = "rotate(0deg)";
       closeIcon.style.opacity = "0";
@@ -282,6 +300,7 @@ const navPills = [
   }
 
   mobileBtn?.addEventListener("click", toggleMenu);
+  mobileCloseBtn?.addEventListener("click", toggleMenu);
 
   mobileLinks.forEach((link) => {
     link.addEventListener("click", () => {

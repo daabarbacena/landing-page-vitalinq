@@ -34,7 +34,7 @@ const gridImages = [
 
         <h2
           id="security-heading"
-          class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-gray-900 sec-anim"
+          class="mt-4 text-3xl sm:text-4xl lg:text-6xl font-light tracking-tight text-gray-900 sec-anim"
           style="animation-delay: 200ms;"
         >
           Segurança e <span class="font-normal text-[#673de6]">conformidade</span>
@@ -46,13 +46,29 @@ const gridImages = [
           Importação de medicamentos com etapas regulatórias claras. Orientamos, organizamos e acompanhamos cada fase do processo.
         </p>
 
-        <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 sec-anim" style="animation-delay: 500ms;">
+        <div class="mt-8 pillars-grid grid grid-cols-2 gap-x-6 gap-y-3 sec-anim" style="animation-delay: 500ms;">
           {pillars.map((pillar) => (
             <div class="flex items-center gap-3">
               <span class="text-xs font-bold text-[#673de6]">{pillar.number}</span>
               <span class="text-sm text-gray-700 font-medium">{pillar.title}</span>
             </div>
           ))}
+        </div>
+
+        <!-- Mobile: 2x2 Image grid above CTA -->
+        <div class="mt-12 mb-4 w-full lg:hidden sec-anim" style="animation-delay: 550ms;">
+          <div class="diced-grid mx-auto">
+            {gridImages.map((img) => (
+              <div class={`diced-cell ${img.warp}`}>
+                <img
+                  src={img.url}
+                  alt={img.alt}
+                  class="diced-img"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div class="mt-10 sec-anim" style="animation-delay: 600ms;">
@@ -68,8 +84,8 @@ const gridImages = [
         </div>
       </div>
 
-      <!-- Right: 2x2 Diced Image Grid -->
-      <div class="flex-1 flex items-center justify-center lg:justify-end sec-anim" style="animation-delay: 400ms;">
+      <!-- Right: 2x2 Diced Image Grid (Desktop only) -->
+      <div class="hidden lg:flex flex-1 items-center justify-center lg:justify-end sec-anim" style="animation-delay: 400ms;">
         <div class="diced-grid">
           {gridImages.map((img) => (
             <div class={`diced-cell ${img.warp}`}>
@@ -91,10 +107,17 @@ const gridImages = [
   .diced-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
     width: 100%;
-    max-width: 480px;
+    max-width: 320px;
     aspect-ratio: 1 / 1;
+  }
+
+  @media (min-width: 640px) {
+    .diced-grid {
+      gap: 16px;
+      max-width: 480px;
+    }
   }
 
   .diced-cell {
@@ -218,6 +241,12 @@ const gridImages = [
     .sec-anim {
       animation: none;
       opacity: 1;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .pillars-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

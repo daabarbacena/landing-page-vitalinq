@@ -159,25 +159,14 @@ const slidesJson = JSON.stringify(
       </div>
     </div>
 
-    <!-- Progress Indicators -->
-    <div class="mt-10 flex gap-2 sm:gap-4 overflow-x-auto pb-2">
+    <!-- Navigation Dots -->
+    <div class="mt-10 flex gap-3 justify-center">
       {areas.map((area, i) => (
         <button
-          class={`carousel-progress-item flex-1 min-w-[80px] text-left group ${i === 0 ? "active" : ""}`}
-          data-index={i}
+          class={`carousel-dot-item w-3 h-3 rounded-full transition-all duration-300 ${i === 0 ? "bg-[#673de6] scale-110" : "bg-gray-300 hover:bg-gray-400"}`}
+          data-dot-index={i}
           aria-label={`Ir para ${area.title}`}
-        >
-          <div class="h-0.5 w-full bg-gray-200 rounded-full overflow-hidden mb-2">
-            <div
-              class="carousel-progress-fill h-full bg-[#673de6] rounded-full"
-              data-fill-index={i}
-              style={i === 0 ? "width: 0%;" : "width: 0%;"}
-            ></div>
-          </div>
-          <span class="text-xs text-gray-400 group-hover:text-gray-600 transition-colors carousel-progress-label">
-            {area.title}
-          </span>
-        </button>
+        ></button>
       ))}
     </div>
   </div>
@@ -212,11 +201,6 @@ const slidesJson = JSON.stringify(
   .carousel-text-anim.transitioning {
     opacity: 0;
     transform: translateY(16px);
-  }
-
-  .carousel-progress-item.active .carousel-progress-label {
-    color: #111827;
-    font-weight: 500;
   }
 
   .frame-corner {
@@ -266,14 +250,11 @@ const slidesJson = JSON.stringify(
     const nextBtn = document.getElementById("carousel-next");
     const imageFrame = document.getElementById("carousel-image-frame");
     const imgElements = document.querySelectorAll(".carousel-slide-img");
-    const progressItems = document.querySelectorAll(".carousel-progress-item");
-    const progressFills = document.querySelectorAll(".carousel-progress-fill");
+    const dotItems = document.querySelectorAll(".carousel-dot-item");
 
     let currentIndex = 0;
     let isTransitioning = false;
-    let progress = 0;
     let intervalId: ReturnType<typeof setInterval> | null = null;
-    let progressId: ReturnType<typeof setInterval> | null = null;
 
     const SLIDE_DURATION = 6000;
     const TRANSITION_DURATION = 800;
@@ -282,26 +263,22 @@ const slidesJson = JSON.stringify(
       return String(n).padStart(2, "0");
     }
 
-    function updateProgressFills() {
-      progressFills.forEach((fill, i) => {
-        const el = fill as HTMLElement;
-        if (i < currentIndex) {
-          el.style.width = "100%";
-        } else if (i === currentIndex) {
-          el.style.width = "0%";
+    function updateDots() {
+      dotItems.forEach((dot, i) => {
+        const el = dot as HTMLElement;
+        if (i === currentIndex) {
+          el.classList.remove("bg-gray-300", "hover:bg-gray-400");
+          el.classList.add("bg-[#673de6]", "scale-110");
         } else {
-          el.style.width = "0%";
+          el.classList.remove("bg-[#673de6]", "scale-110");
+          el.classList.add("bg-gray-300", "hover:bg-gray-400");
         }
-      });
-      progressItems.forEach((item, i) => {
-        item.classList.toggle("active", i === currentIndex);
       });
     }
 
     function goToSlide(index: number) {
       if (isTransitioning || index === currentIndex) return;
       isTransitioning = true;
-      progress = 0;
 
       const textEls = [numEl, titleEl, subtitleEl, descEl];
       textEls.forEach((el) => el?.classList.add("transitioning"));
@@ -323,7 +300,7 @@ const slidesJson = JSON.stringify(
           img.classList.toggle("active", i === currentIndex);
         });
 
-        updateProgressFills();
+        updateDots();
 
         setTimeout(() => {
           textEls.forEach((el) => el?.classList.remove("transitioning"));
@@ -343,14 +320,6 @@ const slidesJson = JSON.stringify(
 
     function startAutoplay() {
       stopAutoplay();
-      progress = 0;
-
-      progressId = setInterval(() => {
-        progress += 100 / (SLIDE_DURATION / 50);
-        if (progress > 100) progress = 100;
-        const fill = progressFills[currentIndex] as HTMLElement;
-        if (fill) fill.style.width = `${progress}%`;
-      }, 50);
 
       intervalId = setInterval(() => {
         goNext();
@@ -359,9 +328,7 @@ const slidesJson = JSON.stringify(
 
     function stopAutoplay() {
       if (intervalId) clearInterval(intervalId);
-      if (progressId) clearInterval(progressId);
       intervalId = null;
-      progressId = null;
     }
 
     prevBtn?.addEventListener("click", () => {
@@ -374,7 +341,7 @@ const slidesJson = JSON.stringify(
       startAutoplay();
     });
 
-    progressItems.forEach((item, i) => {
+    dotItems.forEach((item, i) => {
       item.addEventListener("click", () => {
         goToSlide(i);
         startAutoplay();

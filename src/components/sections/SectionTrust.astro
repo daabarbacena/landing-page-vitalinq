@@ -223,14 +223,14 @@ const cardContents = [
     </div>
 
     {/* Section Footer Heading */}
-    <div class="flex items-end justify-between px-4 lg:-mt-20">
+    <div class="flex flex-col items-center text-center lg:flex-row lg:items-end lg:justify-between lg:text-right px-4 lg:-mt-20">
       {/* Logo bottom-left */}
       <div class="hidden lg:block">
         <img src={logoPreta.src} alt="VitalinQ" class="h-8 w-auto" />
       </div>
-      <div class="max-w-2xl text-right">
+      <div class="max-w-2xl">
         <h2 id="trust-heading" class="text-4xl md:text-6xl font-bold text-black mb-4">
-          Confiança <span class="bg-[#673de6] text-white px-2 py-1 rounded">em cada</span> etapa
+          Confiança <span class="trust-highlight bg-[#673de6] text-white px-2 py-1 rounded">em cada</span> etapa
         </h2>
         <p class="text-gray-600 text-lg leading-relaxed">
           Importação de medicamentos com segurança, documentação correta e acompanhamento claro em todo o processo.
@@ -244,6 +244,12 @@ const cardContents = [
   @media (prefers-reduced-motion: reduce) {
     * {
       animation: none !important;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .trust-highlight {
+      border-radius: 0.5rem;
     }
   }
 </style>
