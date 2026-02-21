@@ -1,5 +1,7 @@
 ---
 import { MEDICAMENTOS_TRIAGEM_OPTIONS } from "../../types/triagem";
+import ParticlesBackground from "../ParticlesBackground.astro";
+import logoPreta from "../../assets/images/logos/logo-preta.svg";
 
 const medicamentosTriagem = MEDICAMENTOS_TRIAGEM_OPTIONS
   .filter((opt) => opt.active !== false)
@@ -13,6 +15,9 @@ const whatsappNumber = "13024657818";
   aria-labelledby="contact-heading"
   class="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden"
 >
+  <!-- Particles Background -->
+  <ParticlesBackground />
+
   <!-- Background gradient accent -->
   <div class="absolute inset-0 pointer-events-none">
     <div
@@ -28,6 +33,7 @@ const whatsappNumber = "13024657818";
   <div class="relative z-10 max-w-2xl mx-auto px-6">
     <!-- Header -->
     <div class="text-center mb-12">
+      <img src={logoPreta.src} alt="VitalinQ Logo" class="h-12 mx-auto mb-6" />
       <h2
         id="contact-heading"
         class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-gray-900"

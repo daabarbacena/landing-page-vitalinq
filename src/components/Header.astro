@@ -8,90 +8,108 @@ const navSections = [
   { label: "Áreas", href: "/#areas-terapeuticas" },
   { label: "Segurança", href: "/#seguranca" },
 ];
+
+const navPills = [
+  { label: "CBD", href: "/cbd", color: "bg-green-700 hover:bg-green-600" },
+];
 ---
 
-<header
-  id="main-header"
-  class="fixed top-0 z-[9999] w-full border-b border-white/10 bg-transparent backdrop-blur-sm"
->
-  <div
-    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
+<div id="header-wrapper" class="header-wrapper">
+  <header
+    id="main-header"
+    class="header-bar"
   >
-    <a
-      href="/"
-      class="flex items-center gap-2 transition-transform hover:opacity-90"
-      aria-label="VitalinQ — Página inicial"
-    >
-      <img
-        src={logoVitalinQ.src}
-        alt="VitalinQ"
-        class="h-10 w-auto"
-      />
-    </a>
+    <div class="header-inner">
+      <a
+        href="/"
+        class="flex items-center gap-2 transition-transform hover:opacity-90"
+        aria-label="VitalinQ — Página inicial"
+      >
+        <img
+          src={logoVitalinQ.src}
+          alt="VitalinQ"
+          class="header-logo"
+        />
+      </a>
 
-    <!-- Desktop Navigation -->
-    <nav aria-label="Navegação principal" class="hidden md:block">
-      <ul class="flex items-center gap-8 text-sm font-medium text-white/80">
-        {
-          navSections.map((item) => (
-            <li>
+      <!-- Desktop Navigation -->
+      <nav aria-label="Navegação principal" class="hidden md:flex md:items-center md:gap-8">
+        <ul class="flex items-center gap-8 text-sm font-medium text-white/80">
+          {
+            navSections.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="nav-link relative transition-colors hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <!-- Nav Pills -->
+        <div class="flex items-center gap-3 ml-4 pl-4 border-l border-white/10">
+          {
+            navPills.map((pill) => (
               <a
-                href={item.href}
-                class="nav-link relative transition-colors hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full"
+                href={pill.href}
+                class={`px-4 py-2 rounded-md text-sm font-medium text-white transition-all ${pill.color}`}
               >
-                {item.label}
+                {pill.label}
               </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
+            ))
+          }
+        </div>
+      </nav>
 
-    <!-- Mobile Menu Button -->
-    <button
-      id="mobile-menu-btn"
-      class="group flex h-10 w-10 items-center justify-center rounded-lg p-2 text-white/80 hover:bg-white/10 md:hidden focus:outline-none focus:ring-2 focus:ring-white/30"
-      aria-label="Abrir menu de navegação"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <!-- Hamburger Icon -->
-      <svg
-        id="hamburger-icon"
-        class="h-6 w-6 transition-all duration-300"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="group flex h-10 w-10 items-center justify-center rounded-lg p-2 text-white/80 hover:bg-white/10 md:hidden focus:outline-none focus:ring-2 focus:ring-white/30"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-      <!-- Close Icon -->
-      <svg
-        id="close-icon"
-        class="absolute h-6 w-6 opacity-0 transition-all duration-300"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-  </div>
+        <!-- Hamburger Icon -->
+        <svg
+          id="hamburger-icon"
+          class="h-6 w-6 transition-all duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Close Icon -->
+        <svg
+          id="close-icon"
+          class="absolute h-6 w-6 opacity-0 transition-all duration-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
 
   <!-- Mobile Menu Dropdown -->
   <div
     id="mobile-menu"
-    class="fixed inset-x-0 top-[73px] z-[9998] max-h-0 overflow-hidden bg-white/98 backdrop-blur-xl transition-all duration-300 ease-in-out md:hidden"
+    class="mobile-menu-dropdown md:hidden"
   >
     <nav class="flex flex-col border-t border-neutral-200/50">
       {
@@ -104,17 +122,142 @@ const navSections = [
           </a>
         ))
       }
+      <!-- Mobile CBD Pill -->
+      {
+        navPills.map((pill) => (
+          <a
+            href={pill.href}
+            class="mobile-link border-b border-neutral-100 px-6 py-4 text-base font-medium text-white bg-green-500 hover:bg-green-600 transition-colors"
+          >
+            {pill.label}
+          </a>
+        ))
+      }
     </nav>
   </div>
-</header>
+</div>
+
+<style>
+  .header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    transition: padding 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-wrapper.scrolled {
+    padding: 8px 16px 0;
+  }
+
+  .header-bar {
+    width: 100%;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    transition:
+      background 1s cubic-bezier(0.4, 0, 0.2, 1),
+      backdrop-filter 1s cubic-bezier(0.4, 0, 0.2, 1),
+      border-radius 1s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1),
+      max-width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 100%;
+  }
+
+  .header-wrapper.scrolled .header-bar {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+  }
+
+  .header-inner {
+    margin: 0 auto;
+    max-width: 80rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 16px;
+    transition: padding 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (min-width: 640px) {
+    .header-inner {
+      padding: 16px 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .header-inner {
+      padding: 16px 32px;
+    }
+  }
+
+  .header-wrapper.scrolled .header-inner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .header-logo {
+    height: 2.5rem;
+    width: auto;
+    transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .header-wrapper.scrolled .header-logo {
+    height: 2rem;
+  }
+
+  .mobile-menu-dropdown {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 73px;
+    z-index: 9998;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.3s ease-in-out;
+  }
+</style>
 
 <script>
+  const wrapper = document.getElementById("header-wrapper") as HTMLElement;
   const mobileBtn = document.getElementById("mobile-menu-btn") as HTMLButtonElement;
   const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
   const hamburgerIcon = document.getElementById("hamburger-icon") as unknown as SVGElement;
   const closeIcon = document.getElementById("close-icon") as unknown as SVGElement;
   const mobileLinks = document.querySelectorAll(".mobile-link");
 
+  // Scroll shrink effect
+  let scrolled = false;
+  function onScroll() {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    if (y > 50 && !scrolled) {
+      scrolled = true;
+      wrapper.classList.add("scrolled");
+    } else if (y <= 50 && scrolled) {
+      scrolled = false;
+      wrapper.classList.remove("scrolled");
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
   let isMenuOpen = false;
 
   function toggleMenu() {

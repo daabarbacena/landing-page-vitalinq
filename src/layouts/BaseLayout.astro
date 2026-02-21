@@ -43,37 +43,24 @@ const {
       Pular para o conteúdo
     </a>
 
-    <!-- Global Fixed Header -->
+    <!-- Fixed Header -->
     <Header />
 
     <main id="main-content">
       <slot />
     </main>
 
-    <!-- Lenis Smooth Scroll -->
-    <script is:inline src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <!-- Smooth anchor scroll (native CSS scroll-behavior: smooth handles it) -->
     <script is:inline>
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-        touchMultiplier: 2,
-        smoothWheel: true,
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-
-      // Make anchor links work with Lenis
-      document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach(function(anchor) {
+      // Handle /#hash links (from nav) to scroll to #hash on the same page
+      document.querySelectorAll('a[href^="/#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
           var href = this.getAttribute('href');
-          var hash = href.startsWith('/#') ? href.substring(1) : href;
+          var hash = href.substring(1); // remove leading /
           var target = document.querySelector(hash);
           if (target) {
             e.preventDefault();
-            lenis.scrollTo(target, { offset: -80 });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       });

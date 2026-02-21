@@ -1,9 +1,9 @@
 ---
 import oncologiaImg from "../../assets/images/oncologia.avif";
 import escleroseImg from "../../assets/images/esclerose.avif";
-import doencasRarasImg from "../../assets/images/doencas-raras.avif";
+import doencasRarasImg from "../../assets/images/doencas-raras.jpg";
 import imunobiologicosImg from "../../assets/images/imunobiologicos.avif";
-import endocrinologiaImg from "../../assets/images/endocrinologia.avif";
+import endocrinologiaImg from "../../assets/images/endocrinologista.jpg";
 import medicoReceitandoImg from "../../assets/images/medico-receitando.avif";
 
 const areas = [
@@ -59,6 +59,10 @@ const slidesJson = JSON.stringify(
   aria-labelledby="areas-heading"
   class="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden"
 >
+  <!-- Background grid with gradient -->
+  <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:6rem_4rem]">
+    <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#c9b4ff,transparent)]"></div>
+  </div>
   <!-- Section Header -->
   <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
     <h2
@@ -134,8 +138,8 @@ const slidesJson = JSON.stringify(
       </div>
 
       <!-- Right: Image -->
-      <div class="flex-1 relative flex items-center justify-center">
-        <div id="carousel-image-frame" class="carousel-frame relative overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-[3/4] scale-60">
+      <div class="flex-1 relative flex items-center justify-center min-h-[400px]">
+        <div id="carousel-image-frame" class="carousel-frame relative overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-[3/4] w-full max-w-sm lg:max-w-md">
           {areas.map((area, i) => (
             <img
               src={area.image.src}

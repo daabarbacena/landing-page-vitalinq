@@ -1,0 +1,318 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import cbdImage from "../assets/images/cbd/vitalinqcbd.png";
+---
+
+<BaseLayout title="CBD Medicinal — VitalinQ">
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- HERO — Texto | Imagem                                   -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section
+    id="inicio"
+    class="w-full isolate min-h-screen overflow-hidden relative"
+  >
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-green-950"></div>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(34,197,94,0.12),transparent_60%)]"></div>
+
+    <!-- Content -->
+    <div class="z-10 relative w-full flex flex-col justify-center min-h-screen">
+      <div class="max-w-7xl mx-auto px-6 pt-24 pb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left: Text -->
+          <div class="cbd-fade-in" style="animation-delay: 200ms">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase bg-green-500/15 text-green-400 border border-green-500/20 mb-6">
+              CBD Medicinal
+            </span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-white font-light tracking-tight">
+              Tratamento com <span class="text-green-400 font-normal">canabidiol</span> importado
+            </h1>
+            <p class="sm:text-lg text-base text-white/70 max-w-lg mt-6">
+              Acesso seguro e legal ao CBD medicinal com acompanhamento especializado, documentação completa e conformidade regulatória em todo o processo de importação.
+            </p>
+            <div class="flex flex-col sm:flex-row sm:gap-4 mt-8 gap-3">
+              <a
+                href="#medico"
+                class="inline-flex items-center gap-2 text-sm font-medium text-white bg-green-600 hover:bg-green-500 rounded-full py-3 px-6 transition-colors"
+              >
+                Fale com um médico
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a
+                href="#sobre"
+                class="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/15 hover:bg-white/15 px-6 py-3 text-sm font-medium text-white/90 hover:text-white transition-colors"
+              >
+                Saiba mais
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Image -->
+          <div class="cbd-fade-in flex justify-center lg:justify-end" style="animation-delay: 400ms">
+            <div class="relative">
+              <div class="absolute -inset-4 bg-green-500/10 rounded-2xl blur-2xl"></div>
+              <img
+                src={cbdImage.src}
+                alt="VitalinQ CBD Medicinal"
+                class="relative w-full max-w-md lg:max-w-lg rounded-lg object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SOBRE NÓS                                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="sobre" class="relative py-24 sm:py-32 bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-green-50 blur-[120px] pointer-events-none"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-sm font-medium text-green-600 uppercase tracking-wider">Sobre nós</span>
+          <h2 class="text-3xl md:text-5xl font-light tracking-tight text-gray-900 mt-3 mb-6">
+            Referência em <span class="font-normal text-green-600">CBD medicinal</span> no Brasil
+          </h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-6">
+            A VitalinQ CBD é especializada na importação legal de produtos à base de canabidiol, conectando pacientes brasileiros a tratamentos de alta qualidade disponíveis internacionalmente.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            Nossa equipe multidisciplinar trabalha em conformidade com as regulamentações da ANVISA, garantindo que cada etapa do processo — da prescrição médica à entrega — seja conduzida com segurança e transparência.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="bg-gray-50 rounded-xl p-6 text-center">
+            <span class="text-4xl font-bold text-green-600 block">500+</span>
+            <p class="text-gray-600 text-sm mt-2">Pacientes atendidos</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-6 text-center">
+            <span class="text-4xl font-bold text-green-600 block">100%</span>
+            <p class="text-gray-600 text-sm mt-2">Conformidade ANVISA</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-6 text-center">
+            <span class="text-4xl font-bold text-green-600 block">15+</span>
+            <p class="text-gray-600 text-sm mt-2">Produtos disponíveis</p>
+          </div>
+          <div class="bg-gray-50 rounded-xl p-6 text-center">
+            <span class="text-4xl font-bold text-green-600 block">24h</span>
+            <p class="text-gray-600 text-sm mt-2">Suporte ao paciente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- IMPORTAÇÃO                                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="importacao" class="relative py-24 sm:py-32 bg-[#f8f7f5] overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-sm font-medium text-green-600 uppercase tracking-wider">Importação</span>
+        <h2 class="text-3xl md:text-5xl font-light tracking-tight text-gray-900 mt-3">
+          Como importar <span class="font-normal text-green-600">CBD</span> legalmente
+        </h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-4">
+          O processo de importação de canabidiol no Brasil segue normas específicas da ANVISA. Cuidamos de tudo para você.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative bg-white rounded-xl p-8 border border-gray-200 hover:border-green-300 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center text-lg font-bold mb-6">1</div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Prescrição médica</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            O médico avalia o paciente e emite a prescrição com indicação de produto à base de CBD, conforme protocolos clínicos.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative bg-white rounded-xl p-8 border border-gray-200 hover:border-green-300 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center text-lg font-bold mb-6">2</div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Autorização ANVISA</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Preparamos e submetemos toda a documentação necessária para obter a autorização de importação junto à ANVISA.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-white rounded-xl p-8 border border-gray-200 hover:border-green-300 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center text-lg font-bold mb-6">3</div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Entrega ao paciente</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Realizamos a importação, desembaraço aduaneiro e entrega com rastreabilidade completa até o paciente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- BENEFÍCIOS                                              -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="beneficios" class="relative py-24 sm:py-32 bg-white overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-green-50 blur-[100px] pointer-events-none"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-sm font-medium text-green-600 uppercase tracking-wider">Benefícios</span>
+        <h2 class="text-3xl md:text-5xl font-light tracking-tight text-gray-900 mt-3">
+          Por que escolher o <span class="font-normal text-green-600">CBD medicinal</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="group p-8 rounded-xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Alívio da dor crônica</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Estudos demonstram eficácia do CBD no manejo de dores crônicas, neuropáticas e inflamatórias com menos efeitos colaterais.
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="group p-8 rounded-xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Controle da epilepsia</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            O canabidiol é reconhecido cientificamente pela sua ação anticonvulsivante, especialmente em epilepsias refratárias.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="group p-8 rounded-xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"/><path d="M2 20h20"/><path d="M14 12v.01"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Redução da ansiedade</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            O CBD atua nos receptores de serotonina, auxiliando no tratamento de transtornos de ansiedade generalizada e estresse.
+          </p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="group p-8 rounded-xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Melhora do sono</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Pacientes relatam melhora significativa na qualidade do sono, com redução de insônia e distúrbios relacionados.
+          </p>
+        </div>
+
+        <!-- Benefit 5 -->
+        <div class="group p-8 rounded-xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Ação anti-inflamatória</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Propriedades anti-inflamatórias comprovadas que auxiliam no tratamento de condições autoimunes e inflamatórias.
+          </p>
+        </div>
+
+        <!-- Benefit 6 -->
+        <div class="group p-8 rounded-xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+          <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Segurança comprovada</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Perfil de segurança bem estabelecido, com poucos efeitos adversos e sem risco de dependência conforme estudos da OMS.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- MÉDICO / CTA                                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <section id="medico" class="relative py-24 sm:py-32 overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-green-950"></div>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,197,94,0.15),transparent_60%)]"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <span class="inline-block px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase bg-green-500/15 text-green-400 border border-green-500/20 mb-6">
+        Consulta médica
+      </span>
+      <h2 class="text-3xl md:text-5xl font-light tracking-tight text-white mb-6">
+        Precisa de orientação <span class="font-normal text-green-400">médica</span>?
+      </h2>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto mb-10">
+        Nossa equipe de médicos especializados pode avaliar seu caso e indicar o tratamento com CBD mais adequado. Tudo com acompanhamento contínuo e documentação para importação legal.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+          <span class="text-3xl font-bold text-green-400 block">1.</span>
+          <p class="text-white/80 text-sm mt-2">Agende sua consulta online com um médico prescritor</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+          <span class="text-3xl font-bold text-green-400 block">2.</span>
+          <p class="text-white/80 text-sm mt-2">Receba a prescrição e orientações do tratamento</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6">
+          <span class="text-3xl font-bold text-green-400 block">3.</span>
+          <p class="text-white/80 text-sm mt-2">Iniciamos o processo de importação do seu CBD</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://wa.me/13024657818?text=Olá! Gostaria de agendar uma consulta sobre CBD medicinal."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-medium text-white bg-green-600 hover:bg-green-500 rounded-full py-3.5 px-8 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Agendar consulta via WhatsApp
+        </a>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 rounded-full bg-white/10 ring-1 ring-white/15 hover:bg-white/15 px-8 py-3.5 text-sm font-medium text-white/90 hover:text-white transition-colors"
+        >
+          Voltar ao site principal
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  @keyframes cbdFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .cbd-fade-in {
+    animation: cbdFadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cbd-fade-in {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

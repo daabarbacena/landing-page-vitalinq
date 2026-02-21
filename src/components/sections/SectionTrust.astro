@@ -1,21 +1,31 @@
 ---
+import logoPreta from "../../assets/images/logos/logo-preta.svg";
+
 const cardContents = [
   {
+    number: "2000+",
+    numberLabel: "Produtos Entregues",
     title: "Conformidade Regulatória",
     description:
       "Garantimos que todos os medicamentos importados atendem às normas ANVISA e regulamentações internacionais.",
   },
   {
+    number: "100%",
+    numberLabel: "Taxa de Sucesso",
     title: "Atendimento Especializado",
     description:
       "Equipe dedicada disponível para orientar em cada etapa do processo de importação.",
   },
   {
+    number: "5+",
+    numberLabel: "Anos de Experiência",
     title: "Documentação Completa",
     description:
       "Cuidamos de toda a papelada e requisitos legais, simplificando o processo para você. Importação ágil e transparente com rastreabilidade total do medicamento desde a compra até a entrega.",
   },
   {
+    number: "30+",
+    numberLabel: "Países Atendidos",
     title: "Acesso Global",
     description:
       "Conectamos você a fabricantes certificados e distribuidores internacionais confiáveis.",
@@ -45,6 +55,12 @@ const cardContents = [
     }}
   />
   <div class="relative z-10 mx-auto max-w-7xl px-6">
+    {/* Section Header */}
+    <div class="mb-12 text-center">
+      <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Nossos Números Falam por Si</h3>
+      <p class="text-gray-600 text-lg max-w-xl mx-auto">Resultados que comprovam nossa excelência em importação de medicamentos.</p>
+    </div>
+
     {/* Responsive Grid */}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-auto gap-4 mb-12">
       {/* Card 1 - Large */}
@@ -69,8 +85,10 @@ const cardContents = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
           </svg>
         </div>
-        <div class="relative z-10 space-y-2">
-          <h3 class="text-xl font-bold text-gray-900">
+        <div class="relative z-10 space-y-3">
+          <span class="text-5xl lg:text-6xl font-bold text-[#673de6]">{cardContents[0].number}</span>
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">{cardContents[0].numberLabel}</p>
+          <h3 class="text-xl font-bold text-gray-900 pt-2">
             {cardContents[0].title}
           </h3>
           <p class="text-gray-700 text-sm leading-relaxed">{cardContents[0].description}</p>
@@ -99,8 +117,10 @@ const cardContents = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
           </svg>
         </div>
-        <div class="relative z-10 space-y-2">
-          <h3 class="text-xl font-bold text-gray-900">
+        <div class="relative z-10 space-y-3">
+          <span class="text-5xl lg:text-6xl font-bold text-[#673de6]">{cardContents[1].number}</span>
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">{cardContents[1].numberLabel}</p>
+          <h3 class="text-xl font-bold text-gray-900 pt-2">
             {cardContents[1].title}
           </h3>
           <p class="text-gray-700 text-sm leading-relaxed">{cardContents[1].description}</p>
@@ -129,8 +149,10 @@ const cardContents = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
           </svg>
         </div>
-        <div class="relative z-10 space-y-2">
-          <h3 class="text-xl font-bold text-gray-900">
+        <div class="relative z-10 space-y-3">
+          <span class="text-5xl lg:text-6xl font-bold text-[#673de6]">{cardContents[2].number}</span>
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">{cardContents[2].numberLabel}</p>
+          <h3 class="text-xl font-bold text-gray-900 pt-2">
             {cardContents[2].title}
           </h3>
           <p class="text-gray-700 text-sm leading-relaxed">{cardContents[2].description}</p>
@@ -159,8 +181,10 @@ const cardContents = [
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
           </svg>
         </div>
-        <div class="relative z-10 space-y-2">
-          <h3 class="text-xl font-bold text-gray-900">
+        <div class="relative z-10 space-y-3">
+          <span class="text-5xl lg:text-6xl font-bold text-[#673de6]">{cardContents[3].number}</span>
+          <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">{cardContents[3].numberLabel}</p>
+          <h3 class="text-xl font-bold text-gray-900 pt-2">
             {cardContents[3].title}
           </h3>
           <p class="text-gray-700 text-sm leading-relaxed">{cardContents[3].description}</p>
@@ -199,13 +223,19 @@ const cardContents = [
     </div>
 
     {/* Section Footer Heading */}
-    <div class="max-w-2xl ml-auto text-right px-4 lg:-mt-20">
-      <h2 id="trust-heading" class="text-4xl md:text-6xl font-bold text-black mb-4">
-        Confiança <span class="bg-[#673de6] text-white px-2 py-1 rounded">em cada</span> etapa
-      </h2>
-      <p class="text-gray-600 text-lg leading-relaxed">
-        Importação de medicamentos com segurança, documentação correta e acompanhamento claro em todo o processo.
-      </p>
+    <div class="flex items-end justify-between px-4 lg:-mt-20">
+      {/* Logo bottom-left */}
+      <div class="hidden lg:block">
+        <img src={logoPreta.src} alt="VitalinQ" class="h-8 w-auto" />
+      </div>
+      <div class="max-w-2xl text-right">
+        <h2 id="trust-heading" class="text-4xl md:text-6xl font-bold text-black mb-4">
+          Confiança <span class="bg-[#673de6] text-white px-2 py-1 rounded">em cada</span> etapa
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Importação de medicamentos com segurança, documentação correta e acompanhamento claro em todo o processo.
+        </p>
+      </div>
     </div>
   </div>
 </section>
