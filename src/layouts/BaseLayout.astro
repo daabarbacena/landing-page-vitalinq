@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import FloatingHeaderWrapper from "../components/FloatingHeaderWrapper.astro";
+import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
@@ -34,17 +34,17 @@ const {
     <title>{title}</title>
   </head>
 
-  <body class="min-h-screen bg-[#0a0a0a] text-white antialiased">
+  <body class="min-h-screen bg-white text-gray-900 antialiased">
     <!-- Skip to content -->
     <a
       href="#main-content"
-      class="fixed left-2 top-2 z-50 -translate-y-16 rounded-lg bg-[#673de6] px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+      class="fixed left-2 top-2 z-50 -translate-y-16 rounded-lg bg-black px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
     >
       Pular para o conteúdo
     </a>
 
     <!-- Global Fixed Header -->
-    <FloatingHeaderWrapper />
+    <Header />
 
     <main id="main-content">
       <slot />

@@ -1,6 +1,5 @@
 ---
 import heroImage from "../../assets/images/vitalinq-pills.jpg";
-import logoVitalinQ from "../../assets/images/logos/logo-vitalinq.svg";
 
 // Tech logos para partners section
 const partners = [
@@ -9,14 +8,6 @@ const partners = [
   { name: "Novartis", path: "/assets/images/techs/logo-novartis.svg", scale: 1.1 },
   { name: "MSD", path: "/assets/images/techs/logo-msd.svg", scale: 1 },
   { name: "Bayer", path: "/assets/images/techs/logo-bayer.svg", scale: 1.2 },
-];
-
-const navLinks = [
-  { label: "Processo", href: "/#passos" },
-  { label: "Confiança", href: "/#confianca" },
-  { label: "Áreas", href: "/#areas-terapeuticas" },
-  { label: "Segurança", href: "/#seguranca" },
-  { label: "Contato", href: "/#contato" },
 ];
 ---
 
@@ -36,89 +27,27 @@ const navLinks = [
   <!-- Overlay Gradient for text readability -->
   <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
 
-  <!-- Header Navigation -->
-  <header class="z-10 relative">
-    <div class="mx-6">
-      <div class="flex items-center justify-between pt-4 md:pt-6">
-        <!-- Logo -->
-        <a
-          href="/"
-          class="inline-flex items-center h-10 w-auto"
-          aria-label="VitalinQ — Página inicial"
-        >
-          <img src={logoVitalinQ.src} alt="VitalinQ" class="h-10 w-auto" />
-        </a>
-
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-1">
-          <div class="flex items-center gap-1 rounded-full bg-white/5 px-2 py-1.5 ring-1 ring-white/10 backdrop-blur">
-            {navLinks.map((link) => (
-              <a
-                href={link.href}
-                class="px-4 py-2 text-sm font-normal text-white/80 hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="/#contato"
-              class="ml-2 inline-flex items-center gap-2 rounded-full bg-[#673de6] px-4 py-2 text-sm font-medium text-white hover:bg-[#5a32d4] transition-colors"
-            >
-              Falar agora
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-                <path d="M7 7h10v10"></path>
-                <path d="M7 17 17 7"></path>
-              </svg>
-            </a>
-          </div>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <button
-          class="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15 backdrop-blur hover:bg-white/15 transition-colors"
-          aria-label="Abrir menu"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white/90">
-            <path d="M4 5h16"></path>
-            <path d="M4 12h16"></path>
-            <path d="M4 19h16"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
   <!-- Main Content -->
-  <div class="z-10 relative">
-    <div class="sm:pt-24 md:pt-32 lg:pt-40 max-w-7xl mx-auto pt-20 px-6 pb-16">
+  <div class="z-10 relative w-full flex flex-col justify-center min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 pb-8 pt-20 sm:pt-24 md:pt-28">
       <!-- Center Content -->
       <div class="mx-auto max-w-3xl text-center hero-content">
-        <!-- Badge -->
-        <div class="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-3 py-2 ring-1 ring-white/15 backdrop-blur fade-in-up" style="animation-delay: 100ms">
-          <span class="inline-flex items-center text-xs font-semibold text-white bg-[#673de6] rounded-full py-1 px-2.5">
-            NOVO
-          </span>
-          <span class="text-sm font-normal text-white/90">
-            Importação segura de medicamentos
-          </span>
-        </div>
-
         <!-- Headline -->
         <h1
           id="hero-headline"
           class="sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-4xl text-white font-light tracking-tight fade-in-up"
           style="animation-delay: 200ms"
         >
-          Medicamentos <span class="text-[#673de6] font-normal">importados</span> com segurança
+          Medicamentos importados com <span class="text-[#673de6] font-normal">segurança</span>
         </h1>
 
         <!-- Description -->
-        <p class="sm:text-lg text-base text-white/80 max-w-2xl mt-6 mx-auto fade-in-up" style="animation-delay: 300ms">
+        <p class="sm:text-lg text-base text-white/80 max-w-2xl mt-4 mx-auto fade-in-up" style="animation-delay: 300ms">
           Assessoria especializada na importação de medicamentos com conformidade regulatória, documentação correta e acompanhamento transparente de todo o processo.
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row sm:gap-4 mt-10 gap-3 items-center justify-center fade-in-up" style="animation-delay: 400ms">
+        <div class="flex flex-col sm:flex-row sm:gap-4 mt-8 gap-3 items-center justify-center fade-in-up" style="animation-delay: 400ms">
           <a
             href="/#contato"
             class="inline-flex items-center gap-2 hover:bg-white/15 text-sm font-medium text-white bg-white/10 ring-white/15 ring-1 rounded-full py-3 px-6 transition-colors"
@@ -142,11 +71,11 @@ const navLinks = [
       </div>
 
       <!-- Partners Section -->
-      <div class="mx-auto mt-20 max-w-5xl">
+      <div class="mx-auto mt-12 max-w-5xl">
         <p class="fade-in-up text-sm text-white/60 text-center" style="animation-delay: 500ms">
           Operamos com fabricantes certificados globalmente
         </p>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 fade-in-up text-white/70 mt-8 items-center justify-items-center gap-6" style="animation-delay: 600ms">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 fade-in-up text-white/70 mt-6 items-center justify-items-center gap-6" style="animation-delay: 600ms">
           {partners.map((partner) => (
             <div class="inline-flex items-center justify-center bg-center opacity-70 hover:opacity-100 transition-opacity" style={`width: ${100 * partner.scale}px; height: ${40 * partner.scale}px;`}>
               <img src={partner.path} alt={partner.name} class="h-full w-full object-contain filter brightness-0 invert" />

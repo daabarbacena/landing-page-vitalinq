@@ -12,11 +12,10 @@ const navSections = [
 
 <header
   id="main-header"
-  class="fixed top-0 z-[9999] w-full border-b border-neutral-200/50 bg-white/95 backdrop-blur-md transition-all duration-300"
+  class="fixed top-0 z-[9999] w-full border-b border-white/10 bg-transparent backdrop-blur-sm"
 >
   <div
-    id="header-container"
-    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 transition-all duration-300 sm:px-6 lg:px-8"
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
   >
     <a
       href="/"
@@ -24,22 +23,21 @@ const navSections = [
       aria-label="VitalinQ — Página inicial"
     >
       <img
-        id="header-logo"
         src={logoVitalinQ.src}
         alt="VitalinQ"
-        class="h-14 w-auto transition-all duration-300"
+        class="h-10 w-auto"
       />
     </a>
 
     <!-- Desktop Navigation -->
     <nav aria-label="Navegação principal" class="hidden md:block">
-      <ul class="flex items-center gap-8 text-sm font-medium text-neutral-600">
+      <ul class="flex items-center gap-8 text-sm font-medium text-white/80">
         {
           navSections.map((item) => (
             <li>
               <a
                 href={item.href}
-                class="relative transition-colors hover:text-primary after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all hover:after:w-full"
+                class="nav-link relative transition-colors hover:text-white after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-white after:transition-all hover:after:w-full"
               >
                 {item.label}
               </a>
@@ -52,7 +50,7 @@ const navSections = [
     <!-- Mobile Menu Button -->
     <button
       id="mobile-menu-btn"
-      class="group flex h-10 w-10 items-center justify-center rounded-lg p-2 text-neutral-600 hover:bg-neutral-100 md:hidden focus:outline-none focus:ring-2 focus:ring-primary"
+      class="group flex h-10 w-10 items-center justify-center rounded-lg p-2 text-white/80 hover:bg-white/10 md:hidden focus:outline-none focus:ring-2 focus:ring-white/30"
       aria-label="Abrir menu de navegação"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -93,7 +91,7 @@ const navSections = [
   <!-- Mobile Menu Dropdown -->
   <div
     id="mobile-menu"
-    class="fixed inset-x-0 top-[85px] z-[9998] max-h-0 overflow-hidden bg-white/98 backdrop-blur-xl transition-all duration-300 ease-in-out md:hidden"
+    class="fixed inset-x-0 top-[73px] z-[9998] max-h-0 overflow-hidden bg-white/98 backdrop-blur-xl transition-all duration-300 ease-in-out md:hidden"
   >
     <nav class="flex flex-col border-t border-neutral-200/50">
       {
@@ -111,42 +109,20 @@ const navSections = [
 </header>
 
 <script>
-  const header = document.getElementById("main-header") as HTMLElement;
-  const container = document.getElementById("header-container") as HTMLElement;
-  const logo = document.getElementById("header-logo") as HTMLElement;
   const mobileBtn = document.getElementById("mobile-menu-btn") as HTMLButtonElement;
   const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
   const hamburgerIcon = document.getElementById("hamburger-icon") as unknown as SVGElement;
   const closeIcon = document.getElementById("close-icon") as unknown as SVGElement;
   const mobileLinks = document.querySelectorAll(".mobile-link");
 
-  let isScrolled = false;
   let isMenuOpen = false;
-
-  function updateHeader() {
-    const scrollY = window.scrollY;
-
-    if (scrollY > 20 && !isScrolled) {
-      isScrolled = true;
-      header?.classList.add("shadow-md");
-      container?.classList.replace("py-5", "py-2");
-      logo?.classList.replace("h-14", "h-10");
-      if (mobileMenu && !isMenuOpen) mobileMenu.style.top = "65px";
-    } else if (scrollY <= 20 && isScrolled) {
-      isScrolled = false;
-      header?.classList.remove("shadow-md");
-      container?.classList.replace("py-2", "py-5");
-      logo?.classList.replace("h-10", "h-14");
-      if (mobileMenu && !isMenuOpen) mobileMenu.style.top = "85px";
-    }
-  }
 
   function toggleMenu() {
     isMenuOpen = !isMenuOpen;
     mobileBtn?.setAttribute("aria-expanded", String(isMenuOpen));
-    
+
     if (isMenuOpen) {
-      mobileMenu.style.maxHeight = "calc(100vh - 85px)";
+      mobileMenu.style.maxHeight = "calc(100vh - 73px)";
       hamburgerIcon.style.opacity = "0";
       hamburgerIcon.style.transform = "rotate(180deg)";
       closeIcon.style.opacity = "1";
@@ -161,9 +137,6 @@ const navSections = [
       document.body.style.overflow = "";
     }
   }
-
-  window.addEventListener("scroll", updateHeader, { passive: true });
-  updateHeader();
 
   mobileBtn?.addEventListener("click", toggleMenu);
 

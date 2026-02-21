@@ -9,126 +9,397 @@ import medicoReceitandoImg from "../../assets/images/medico-receitando.avif";
 const areas = [
   {
     title: "Oncologia",
-    description: "Terapias oncológicas e medicamentos de alto custo.",
+    subtitle: "Tratamentos de Alta Complexidade",
+    description: "Terapias oncológicas e medicamentos de alto custo importados de fabricantes certificados globalmente, com documentação regulatória completa.",
     image: oncologiaImg,
   },
   {
-    title: "Esclerose múltipla",
-    description: "Tratamentos imunomoduladores e acompanhamento orientado.",
+    title: "Esclerose Múltipla",
+    subtitle: "Terapias Imunomoduladoras",
+    description: "Tratamentos imunomoduladores com acompanhamento orientado e documentação completa para importação segura.",
     image: escleroseImg,
   },
   {
-    title: "Doenças raras",
-    description: "Medicamentos órfãos e de difícil acesso.",
+    title: "Doenças Raras",
+    subtitle: "Medicamentos Órfãos",
+    description: "Medicamentos órfãos e de difícil acesso, importados com conformidade regulatória e rastreabilidade total.",
     image: doencasRarasImg,
   },
   {
     title: "Imunobiológicos",
-    description: "Terapias biológicas e imunossupressoras.",
+    subtitle: "Terapias Biológicas",
+    description: "Terapias biológicas e imunossupressoras com rastreabilidade total do processo de importação.",
     image: imunobiologicosImg,
   },
   {
     title: "Endocrinologia",
-    description: "Medicamentos especializados conforme prescrição.",
+    subtitle: "Tratamentos Especializados",
+    description: "Medicamentos especializados conforme prescrição médica, importados com suporte contínuo e acompanhamento.",
     image: endocrinologiaImg,
   },
   {
-    title: "Sob demanda",
-    description: "Outras especialidades: avaliamos a prescrição e orientamos.",
+    title: "Sob Demanda",
+    subtitle: "Outras Especialidades",
+    description: "Avaliamos a prescrição e orientamos na importação de medicamentos de outras especialidades médicas.",
     image: medicoReceitandoImg,
   },
 ];
+
+const slidesJson = JSON.stringify(
+  areas.map((a) => ({
+    title: a.title,
+    subtitle: a.subtitle,
+    description: a.description,
+  }))
+);
 ---
 
 <section
   id="areas-terapeuticas"
   aria-labelledby="areas-heading"
-  class="bg-[#0a0a0a] py-24 sm:py-32 lg:py-40"
+  class="relative bg-white py-24 sm:py-32 lg:py-40 overflow-hidden"
 >
-  <div class="max-w-6xl mx-auto px-6">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <h2
-        id="areas-heading"
-        class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-white"
-      >
-        Áreas terapêuticas
-      </h2>
-      <p class="mt-4 text-white/40 font-light max-w-xl mx-auto">
-        Atendemos medicamentos de alta complexidade e uso especializado.
-      </p>
-    </div>
+  <!-- Section Header -->
+  <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+    <h2
+      id="areas-heading"
+      class="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-gray-900"
+    >
+      Áreas terapêuticas
+    </h2>
+    <p class="mt-4 text-gray-500 font-light max-w-xl mx-auto">
+      Atendemos medicamentos de alta complexidade e uso especializado.
+    </p>
+  </div>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {areas.map((area) => (
-        <div class="group relative overflow-hidden rounded-2xl bg-white/5 border border-white/5 hover:border-[#673de6]/30 transition-all duration-500">
-          {/* Image */}
-          {area.image && (
-            <div class="relative h-40 overflow-hidden">
-              <img
-                src={area.image.src}
-                alt={area.title}
-                class="h-full w-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent"></div>
-            </div>
-          )}
-          
-          {/* Content */}
-          <div class="p-6">
-            <h3 class="text-white font-light text-lg mb-2 group-hover:text-[#673de6] transition-colors duration-300">
-              {area.title}
-            </h3>
-            <p class="text-white/40 text-sm font-light">
-              {area.description}
-            </p>
+  <!-- Carousel -->
+  <div
+    id="areas-carousel"
+    class="relative max-w-7xl mx-auto px-6"
+  >
+    <!-- Background accent wash -->
+    <div
+      id="carousel-bg-wash"
+      class="pointer-events-none absolute inset-0 transition-all duration-700"
+      style="background: radial-gradient(ellipse at 70% 50%, #673de618 0%, transparent 70%);"
+    ></div>
+
+    <div class="relative flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16">
+      <!-- Left: Text Content -->
+      <div class="flex-1 flex flex-col justify-center lg:max-w-md">
+        <div class="flex flex-col">
+          <!-- Collection number -->
+          <div id="carousel-num" class="carousel-text-anim flex items-center gap-3 mb-6">
+            <span class="block w-8 h-px bg-[#673de6]"></span>
+            <span class="text-xs font-medium tracking-wider text-gray-400 uppercase">01 / 06</span>
+          </div>
+
+          <!-- Title -->
+          <h3 id="carousel-title" class="carousel-text-anim text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3">
+            {areas[0].title}
+          </h3>
+
+          <!-- Subtitle -->
+          <p id="carousel-subtitle" class="carousel-text-anim text-sm font-medium uppercase tracking-wider text-[#673de6] mb-6">
+            {areas[0].subtitle}
+          </p>
+
+          <!-- Description -->
+          <p id="carousel-desc" class="carousel-text-anim text-gray-600 font-light leading-relaxed mb-8">
+            {areas[0].description}
+          </p>
+
+          <!-- Navigation Arrows -->
+          <div class="flex items-center gap-3">
+            <button
+              id="carousel-prev"
+              class="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300 text-gray-500 hover:border-[#673de6] hover:text-[#673de6] transition-colors"
+              aria-label="Slide anterior"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              id="carousel-next"
+              class="flex items-center justify-center w-11 h-11 rounded-full border border-gray-300 text-gray-500 hover:border-[#673de6] hover:text-[#673de6] transition-colors"
+              aria-label="Próximo slide"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
-      ))}
+      </div>
+
+      <!-- Right: Image -->
+      <div class="flex-1 relative flex items-center justify-center">
+        <div id="carousel-image-frame" class="carousel-frame relative overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-[3/4] scale-60">
+          {areas.map((area, i) => (
+            <img
+              src={area.image.src}
+              alt={area.title}
+              class={`carousel-slide-img absolute inset-0 w-full h-full object-cover ${i === 0 ? "active" : ""}`}
+              data-index={i}
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+          ))}
+          <!-- Image overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#673de6]/10 to-transparent pointer-events-none"></div>
+        </div>
+
+        <!-- Decorative frame corners -->
+        <div class="frame-corner frame-corner-tl"></div>
+        <div class="frame-corner frame-corner-br"></div>
+      </div>
     </div>
 
-    <!-- CTA -->
-    <div class="mt-12 text-center">
-      <a
-        href="/#contato"
-        class="inline-flex items-center gap-2 px-6 py-3 text-white/60 hover:text-white text-sm transition-colors group"
-      >
-        <span>Falar com especialista</span>
-        <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-      </a>
+    <!-- Progress Indicators -->
+    <div class="mt-10 flex gap-2 sm:gap-4 overflow-x-auto pb-2">
+      {areas.map((area, i) => (
+        <button
+          class={`carousel-progress-item flex-1 min-w-[80px] text-left group ${i === 0 ? "active" : ""}`}
+          data-index={i}
+          aria-label={`Ir para ${area.title}`}
+        >
+          <div class="h-0.5 w-full bg-gray-200 rounded-full overflow-hidden mb-2">
+            <div
+              class="carousel-progress-fill h-full bg-[#673de6] rounded-full"
+              data-fill-index={i}
+              style={i === 0 ? "width: 0%;" : "width: 0%;"}
+            ></div>
+          </div>
+          <span class="text-xs text-gray-400 group-hover:text-gray-600 transition-colors carousel-progress-label">
+            {area.title}
+          </span>
+        </button>
+      ))}
     </div>
   </div>
+
+  <!-- Slide data for JS -->
+  <script id="carousel-data" type="application/json" set:html={slidesJson} />
 </section>
 
 <style>
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  section > div > div:nth-child(3) > div {
-    animation: fade-in-up 0.6s ease-out forwards;
+  .carousel-slide-img {
     opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  section > div > div:nth-child(3) > div:nth-child(1) { animation-delay: 0ms; }
-  section > div > div:nth-child(3) > div:nth-child(2) { animation-delay: 50ms; }
-  section > div > div:nth-child(3) > div:nth-child(3) { animation-delay: 100ms; }
-  section > div > div:nth-child(3) > div:nth-child(4) { animation-delay: 150ms; }
-  section > div > div:nth-child(3) > div:nth-child(5) { animation-delay: 200ms; }
-  section > div > div:nth-child(3) > div:nth-child(6) { animation-delay: 250ms; }
+  .carousel-slide-img.active {
+    opacity: 1;
+  }
 
-  @media (prefers-reduced-motion: reduce) {
-    section > div > div:nth-child(3) > div {
-      animation: none;
-      opacity: 1;
+  .carousel-frame {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .carousel-frame.transitioning {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+
+  .carousel-text-anim {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .carousel-text-anim.transitioning {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .carousel-progress-item.active .carousel-progress-label {
+    color: #111827;
+    font-weight: 500;
+  }
+
+  .frame-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #673de6;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .frame-corner-tl {
+    top: -8px;
+    left: -8px;
+    border-right: none;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+  }
+
+  .frame-corner-br {
+    bottom: -8px;
+    right: -8px;
+    border-left: none;
+    border-top: none;
+    border-bottom-right-radius: 4px;
+  }
+
+  @media (max-width: 1023px) {
+    .frame-corner {
+      display: none;
     }
   }
 </style>
+
+<script>
+  const carouselEl = document.getElementById("areas-carousel");
+  const dataEl = document.getElementById("carousel-data");
+  if (carouselEl && dataEl) {
+    const slidesData = JSON.parse(dataEl.textContent || "[]");
+    const totalSlides = slidesData.length;
+
+    const numEl = document.getElementById("carousel-num");
+    const titleEl = document.getElementById("carousel-title");
+    const subtitleEl = document.getElementById("carousel-subtitle");
+    const descEl = document.getElementById("carousel-desc");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const imageFrame = document.getElementById("carousel-image-frame");
+    const imgElements = document.querySelectorAll(".carousel-slide-img");
+    const progressItems = document.querySelectorAll(".carousel-progress-item");
+    const progressFills = document.querySelectorAll(".carousel-progress-fill");
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let progress = 0;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+    let progressId: ReturnType<typeof setInterval> | null = null;
+
+    const SLIDE_DURATION = 6000;
+    const TRANSITION_DURATION = 800;
+
+    function padNum(n: number) {
+      return String(n).padStart(2, "0");
+    }
+
+    function updateProgressFills() {
+      progressFills.forEach((fill, i) => {
+        const el = fill as HTMLElement;
+        if (i < currentIndex) {
+          el.style.width = "100%";
+        } else if (i === currentIndex) {
+          el.style.width = "0%";
+        } else {
+          el.style.width = "0%";
+        }
+      });
+      progressItems.forEach((item, i) => {
+        item.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function goToSlide(index: number) {
+      if (isTransitioning || index === currentIndex) return;
+      isTransitioning = true;
+      progress = 0;
+
+      const textEls = [numEl, titleEl, subtitleEl, descEl];
+      textEls.forEach((el) => el?.classList.add("transitioning"));
+      imageFrame?.classList.add("transitioning");
+
+      setTimeout(() => {
+        currentIndex = index;
+        const slide = slidesData[currentIndex];
+
+        if (numEl) {
+          const numSpan = numEl.querySelector("span:last-child");
+          if (numSpan) numSpan.textContent = `${padNum(currentIndex + 1)} / ${padNum(totalSlides)}`;
+        }
+        if (titleEl) titleEl.textContent = slide.title;
+        if (subtitleEl) subtitleEl.textContent = slide.subtitle;
+        if (descEl) descEl.textContent = slide.description;
+
+        imgElements.forEach((img, i) => {
+          img.classList.toggle("active", i === currentIndex);
+        });
+
+        updateProgressFills();
+
+        setTimeout(() => {
+          textEls.forEach((el) => el?.classList.remove("transitioning"));
+          imageFrame?.classList.remove("transitioning");
+          isTransitioning = false;
+        }, 50);
+      }, TRANSITION_DURATION / 2);
+    }
+
+    function goNext() {
+      goToSlide((currentIndex + 1) % totalSlides);
+    }
+
+    function goPrev() {
+      goToSlide((currentIndex - 1 + totalSlides) % totalSlides);
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      progress = 0;
+
+      progressId = setInterval(() => {
+        progress += 100 / (SLIDE_DURATION / 50);
+        if (progress > 100) progress = 100;
+        const fill = progressFills[currentIndex] as HTMLElement;
+        if (fill) fill.style.width = `${progress}%`;
+      }, 50);
+
+      intervalId = setInterval(() => {
+        goNext();
+      }, SLIDE_DURATION);
+    }
+
+    function stopAutoplay() {
+      if (intervalId) clearInterval(intervalId);
+      if (progressId) clearInterval(progressId);
+      intervalId = null;
+      progressId = null;
+    }
+
+    prevBtn?.addEventListener("click", () => {
+      goPrev();
+      startAutoplay();
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      goNext();
+      startAutoplay();
+    });
+
+    progressItems.forEach((item, i) => {
+      item.addEventListener("click", () => {
+        goToSlide(i);
+        startAutoplay();
+      });
+    });
+
+    carouselEl.addEventListener("mouseenter", () => stopAutoplay());
+    carouselEl.addEventListener("mouseleave", () => startAutoplay());
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselEl.addEventListener("touchstart", (e: TouchEvent) => {
+      touchStartX = e.targetTouches[0].clientX;
+    }, { passive: true });
+
+    carouselEl.addEventListener("touchmove", (e: TouchEvent) => {
+      touchEndX = e.targetTouches[0].clientX;
+    }, { passive: true });
+
+    carouselEl.addEventListener("touchend", () => {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 60) {
+        if (diff > 0) goNext();
+        else goPrev();
+        startAutoplay();
+      }
+    });
+
+    startAutoplay();
+  }
+</script>
